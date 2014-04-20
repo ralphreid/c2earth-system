@@ -65,28 +65,22 @@
     sudo: true
     file: path={{projects_root}} owner=vagrant group=vagrant mode=0755 state=directory
 
-# http://brightbox.com/docs/ruby/ubuntu/
-  # - name: "Ruby: Switch"
-  # - shell: apt-get install ruby-switch
-  #   sudo: true
-
-  # - name: "ruby: switch to 2.0.0"
-  #   shell: ruby-switch --set ruby2.0
-  #   sudo: true
-
   - name: Install some useful ruby gems
     action: gem name={{item}} state=present
     sudo: true
     with_items:
       - yard
-      - bundler
 
+  - name: "RailsBricks"
+    shell: gem install railsbricks
+    sudo: true
 
-
-  # # Requested during first bundler
-  # - gem: name=bcrypt version=3.1.7 state=present
-  #   sudo: true
+  - name: "Bundler"
+    shell: gem install bundler
+    sudo: true
 
   - name: "Apt-Get Update"
     shell: apt-get update
     sudo: true
+
+

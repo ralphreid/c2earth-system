@@ -18,6 +18,13 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.8'    # dev & test database
   gem 'figaro', '~> 0.7.0'     # env variables
   gem 'therubyracer'
+  gem 'erb2haml' # then run: rake haml:replace_erbs
+
+  # from previous projects
+  gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 # Paging
