@@ -1,4 +1,6 @@
 C2earthSystem::Application.routes.draw do
+  resources :phases
+
   resources :projects
 
   root "pages#home"    
