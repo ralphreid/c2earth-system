@@ -17,6 +17,7 @@ end
 group :development, :test do
   gem 'sqlite3', '~> 1.3.8'    # dev & test database
   gem 'figaro', '~> 0.7.0'     # env variables
+  gem 'therubyracer'
 end
 
 # Paging
