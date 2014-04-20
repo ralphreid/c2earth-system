@@ -8,6 +8,7 @@ gem 'jquery-rails', '~> 3.0.4'
 gem 'turbolinks', '~> 2.1.0'
 gem 'jbuilder', '~> 1.5.3'
 gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'haml-rails'
 
 group :doc do
   gem 'sdoc', require: false
@@ -22,6 +23,7 @@ group :development, :test do
   gem 'erb2haml' # then run: rake haml:replace_erbs
 
   # from previous projects
+  gem 'pry-rails'
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
