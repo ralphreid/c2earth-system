@@ -1,0 +1,92 @@
+- hosts: 127.0.0.1
+  connection: local
+  user: vagrant
+  vars:
+    mysql_root_password: 'user'
+    git_username: ralphreid
+    git_email: "beresfordjunior@me.com"
+    mysql_main_user_username: c2earth
+    mysql_main_database: c2earth
+    mysql_main_user_password: c2earth
+    projects_root: /project
+    project_root: /project/c2earth
+    git_branch_checkout: master
+
+  tasks:
+
+  - name: "Apt-Get Update"
+    shell: apt-get update
+    sudo: true
+
+  - name: Install dependencies
+    apt: name={{item}} state=present update_cache=yes
+    sudo: true
+    with_items:
+      - rubygems
+      - bison
+      - openssl
+      - libyaml-dev
+      - autoconf
+      - automake
+      - libtool
+      - pkg-config
+      - rdoc
+      - git-core
+      - curl
+      - zlib1g-dev
+      - build-essential
+      - libssl-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - sqlite3
+      - libxml2-dev
+      - libxslt1-dev
+      - yard
+      - vim
+      - python-mysqldb
+      # - ruby-switch
+
+
+
+  # - name: "Gems: Do not install documentation locally"
+  #   shell: touch .gemrc && echo 'gem: --no-ri --no-rdoc' > ~/.gemrc
+
+  - name: "GIT: Username and Email"
+    shell: git config --global user.name {{git_username}} ; git config --global user.email {{git_email}}
+
+  # Un-Comment if using windows
+  # - name: "SSH: Keys"
+  #   shell: "mkdir ~/.ssh; touch ~/.ssh/known_hosts; cp /vagrant/id_rsa.pub ~/.ssh/ ; cp /vagrant/id_rsa ~/.ssh ; chmod 700 ~/.ssh ; chmod 600 ~/.ssh/*"
+
+  # - name: "SSH: Add GitHub Known"
+  #   shell: ssh-keyscan -H github.com > ~/.ssh/known_hosts
+
+  - name: "Project Root"
+    sudo: true
+    file: path={{projects_root}} owner=vagrant group=vagrant mode=0755 state=directory
+
+# http://brightbox.com/docs/ruby/ubuntu/
+  # - name: "Ruby: Switch"
+  # - shell: apt-get install ruby-switch
+  #   sudo: true
+
+  # - name: "ruby: switch to 2.0.0"
+  #   shell: ruby-switch --set ruby2.0
+  #   sudo: true
+
+  - name: Install some useful ruby gems
+    action: gem name={{item}} state=present
+    sudo: true
+    with_items:
+      - yard
+      - bundler
+
+
+
+  # # Requested during first bundler
+  # - gem: name=bcrypt version=3.1.7 state=present
+  #   sudo: true
+
+  - name: "Apt-Get Update"
+    shell: apt-get update
+    sudo: true
