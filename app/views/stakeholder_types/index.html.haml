@@ -1,0 +1,19 @@
+%h1 Listing stakeholder_types
+
+%table
+  %tr
+    %th Stakeholder type
+    %th
+    %th
+    %th
+
+  - @stakeholder_types.each do |stakeholder_type|
+    %tr
+      %td= stakeholder_type.stakeholder_type
+      %td= link_to 'Show', stakeholder_type
+      %td= link_to 'Edit', edit_stakeholder_type_path(stakeholder_type)
+      %td= link_to 'Destroy', stakeholder_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Stakeholder type', new_stakeholder_type_path

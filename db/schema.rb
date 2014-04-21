@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421112906) do
+ActiveRecord::Schema.define(version: 20140421113713) do
 
   create_table "client_types", force: true do |t|
     t.string   "client_type"
@@ -93,6 +93,12 @@ ActiveRecord::Schema.define(version: 20140421112906) do
     t.string   "number"
     t.integer  "prefix_id"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stakeholder_types", force: true do |t|
+    t.string   "stakeholder_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

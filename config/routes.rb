@@ -1,4 +1,6 @@
 C2earthSystem::Application.routes.draw do
+  resources :stakeholder_types
+
   resources :faults
 
   resources :companies

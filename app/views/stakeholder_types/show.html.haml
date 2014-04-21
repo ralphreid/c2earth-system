@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Stakeholder type:
+  = @stakeholder_type.stakeholder_type
+
+= link_to 'Edit', edit_stakeholder_type_path(@stakeholder_type)
+\|
+= link_to 'Back', stakeholder_types_path
