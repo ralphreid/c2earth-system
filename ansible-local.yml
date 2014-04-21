@@ -44,6 +44,7 @@
       - yard
       - vim
       - python-mysqldb
+
       # - ruby-switch
 
 
@@ -79,8 +80,25 @@
     shell: gem install bundler
     sudo: true
 
-  - name: "Apt-Get Update"
-    shell: apt-get update
-    sudo: true
+  # - name: "Heroku: CLI Tools"
+  #   shell: apt-add-repository 'deb http://toolbelt.herokuapp.com/ubuntu ./'
+  #   sudo: true
+
+  # - name: "Heroku: Download"
+  #   shell: curl http://toolbelt.herokuapp.com/apt/release.key | sudo apt-key add
+
+  # - name: "Apt-Get Update"
+  #   shell: apt-get update
+  #   sudo: true
+
+  # - name: "Heroku: Install"
+  #   shell: apt-get install heroku-toolbelt
+  #   sudo: true
+
+  - name: "Heroku: Install"
+    shell: wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+
+
 
 
