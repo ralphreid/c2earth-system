@@ -1,3 +1,4 @@
 class Stakeholder < ActiveRecord::Base
-  has_and_belongs_to_many :stakeholders  
+  belongs_to :client_type
+  belongs_to :company
 end
