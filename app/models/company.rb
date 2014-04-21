@@ -1,3 +1,3 @@
-class Company < ActiveRecord::
+class Company < ActiveRecord::Base
   has_many :stakeholders
 end
