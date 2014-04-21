@@ -1,0 +1,19 @@
+%h1 Listing investigation_types
+
+%table
+  %tr
+    %th Investigation type
+    %th
+    %th
+    %th
+
+  - @investigation_types.each do |investigation_type|
+    %tr
+      %td= investigation_type.investigation_type
+      %td= link_to 'Show', investigation_type
+      %td= link_to 'Edit', edit_investigation_type_path(investigation_type)
+      %td= link_to 'Destroy', investigation_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Investigation type', new_investigation_type_path

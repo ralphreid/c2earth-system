@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421115025) do
+ActiveRecord::Schema.define(version: 20140421115622) do
 
   create_table "client_types", force: true do |t|
     t.string   "client_type"
@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(version: 20140421115025) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "investigation_types", force: true do |t|
+    t.string   "investigation_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "phases", force: true do |t|
     t.string   "phase"
