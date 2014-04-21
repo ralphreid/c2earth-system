@@ -1,0 +1,19 @@
+%h1 Listing client_types
+
+%table
+  %tr
+    %th Client type
+    %th
+    %th
+    %th
+
+  - @client_types.each do |client_type|
+    %tr
+      %td= client_type.client_type
+      %td= link_to 'Show', client_type
+      %td= link_to 'Edit', edit_client_type_path(client_type)
+      %td= link_to 'Destroy', client_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Client type', new_client_type_path

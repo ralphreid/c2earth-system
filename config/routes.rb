@@ -1,4 +1,6 @@
 C2earthSystem::Application.routes.draw do
+  resources :client_types
+
   resources :project_managers
 
   resources :phases
