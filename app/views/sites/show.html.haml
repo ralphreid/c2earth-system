@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Number:
+  = @site.number
+%p
+  %b Structure type:
+  = @site.structure_type_id
+%p
+  %b Address:
+  = @site.address
+%p
+  %b City:
+  = @site.city
+%p
+  %b County:
+  = @site.county
+%p
+  %b Loc page:
+  = @site.loc_page
+%p
+  %b Loc longitude:
+  = @site.loc_longitude
+%p
+  %b Loc latitude:
+  = @site.loc_latitude
+%p
+  %b Apn:
+  = @site.apn
+%p
+  %b Tombrobox:
+  = @site.tombrobox
+%p
+  %b Fault:
+  = @site.fault_id
+
+= link_to 'Edit', edit_site_path(@site)
+\|
+= link_to 'Back', sites_path
