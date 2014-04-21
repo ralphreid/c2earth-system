@@ -1,4 +1,6 @@
 C2earthSystem::Application.routes.draw do
+  resources :structure_types
+
   resources :sites
 
   resources :stakeholder_types

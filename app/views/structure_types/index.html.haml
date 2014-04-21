@@ -1,0 +1,19 @@
+%h1 Listing structure_types
+
+%table
+  %tr
+    %th Structure type
+    %th
+    %th
+    %th
+
+  - @structure_types.each do |structure_type|
+    %tr
+      %td= structure_type.structure_type
+      %td= link_to 'Show', structure_type
+      %td= link_to 'Edit', edit_structure_type_path(structure_type)
+      %td= link_to 'Destroy', structure_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Structure type', new_structure_type_path
