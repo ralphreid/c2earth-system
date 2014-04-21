@@ -1,0 +1,13 @@
+= form_for @fault do |f|
+  - if @fault.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@fault.errors.count, "error")} prohibited this fault from being saved:"
+      %ul
+        - @fault.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

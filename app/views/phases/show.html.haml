@@ -1,0 +1,72 @@
+%p#notice= notice
+
+%p
+  %b Phase:
+  = @phase.phase
+%p
+  %b Project:
+  = @phase.project_id
+%p
+  %b Company:
+  = @phase.company_id
+%p
+  %b Project manager:
+  = @phase.project_manager_id
+%p
+  %b Investigation type:
+  = @phase.investigation_type_id
+%p
+  %b Site:
+  = @phase.site_id
+%p
+  %b Stakeholder:
+  = @phase.stakeholder_id
+%p
+  %b Description:
+  = @phase.description
+%p
+  %b Proposal date:
+  = @phase.proposal_date
+%p
+  %b Proposal number:
+  = @phase.proposal_number
+%p
+  %b Report date:
+  = @phase.report_date
+%p
+  %b Notes:
+  = @phase.notes
+%p
+  %b Insurance policy number:
+  = @phase.insurance_policy_number
+%p
+  %b Insurance notes:
+  = @phase.insurance_notes
+%p
+  %b Bill name:
+  = @phase.bill_name
+%p
+  %b Bill attention:
+  = @phase.bill_attention
+%p
+  %b Bill address:
+  = @phase.bill_address
+%p
+  %b Bill city:
+  = @phase.bill_city
+%p
+  %b Bill state:
+  = @phase.bill_state
+%p
+  %b Bill zip:
+  = @phase.bill_zip
+%p
+  %b Bad pay history:
+  = @phase.bad_pay_history
+%p
+  %b Keywords:
+  = @phase.keywords
+
+= link_to 'Edit', edit_phase_path(@phase)
+\|
+= link_to 'Back', phases_path

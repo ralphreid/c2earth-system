@@ -1,0 +1,19 @@
+%h1 Listing project_managers
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @project_managers.each do |project_manager|
+    %tr
+      %td= project_manager.name
+      %td= link_to 'Show', project_manager
+      %td= link_to 'Edit', edit_project_manager_path(project_manager)
+      %td= link_to 'Destroy', project_manager, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Project manager', new_project_manager_path

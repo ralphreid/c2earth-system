@@ -1,0 +1,25 @@
+%h1 Protected Page
+%p
+  This page is only visible to signed in users. Edit it at:
+  %em views/pages/inside
+%p
+  You can change the page users see after successfully signing in within the method
+  %em after_sign_in_path_for
+  inside
+  %strong application_controller.rb
+%h1
+%p
+  Have a look at these CRUD pages and let me know what you think:
+%ul
+  %li=link_to 'Client Types', client_types_path
+  %li=link_to 'Companies', companies_path
+  %li=link_to 'Faults', faults_path
+  %li=link_to 'Investigation Types', investigation_types_path
+  %li=link_to 'Phases', phases_path
+  %li=link_to 'Project Managers', project_managers_path
+  %li=link_to 'Projects', projects_path
+  %li=link_to 'Sites', sites_path
+  %li=link_to 'Stakeholder Types', stakeholder_types_path
+  %li=link_to 'Stakeholders', stakeholders_path
+  %li=link_to 'Structure Types', structure_types_path
+

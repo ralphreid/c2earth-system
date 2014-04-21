@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Structure type:
+  = @structure_type.structure_type
+
+= link_to 'Edit', edit_structure_type_path(@structure_type)
+\|
+= link_to 'Back', structure_types_path

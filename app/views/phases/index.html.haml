@@ -1,0 +1,61 @@
+%h1 Listing phases
+
+%table
+  %tr
+    %th Phase
+    %th Project
+    %th Company
+    %th Project manager
+    %th Investigation type
+    %th Site
+    %th Stakeholder
+    %th Description
+    %th Proposal date
+    %th Proposal number
+    %th Report date
+    %th Notes
+    %th Insurance policy number
+    %th Insurance notes
+    %th Bill name
+    %th Bill attention
+    %th Bill address
+    %th Bill city
+    %th Bill state
+    %th Bill zip
+    %th Bad pay history
+    %th Keywords
+    %th
+    %th
+    %th
+
+  - @phases.each do |phase|
+    %tr
+      %td= phase.phase
+      %td= phase.project_id
+      %td= phase.company_id
+      %td= phase.project_manager_id
+      %td= phase.investigation_type_id
+      %td= phase.site_id
+      %td= phase.stakeholder_id
+      %td= phase.description
+      %td= phase.proposal_date
+      %td= phase.proposal_number
+      %td= phase.report_date
+      %td= phase.notes
+      %td= phase.insurance_policy_number
+      %td= phase.insurance_notes
+      %td= phase.bill_name
+      %td= phase.bill_attention
+      %td= phase.bill_address
+      %td= phase.bill_city
+      %td= phase.bill_state
+      %td= phase.bill_zip
+      %td= phase.bad_pay_history
+      %td= phase.keywords
+      %td= link_to 'Show', phase
+      %td= link_to 'Edit', edit_phase_path(phase)
+      %td= link_to 'Destroy', phase, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Phase', new_phase_path

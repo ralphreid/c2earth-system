@@ -1,0 +1,19 @@
+%h1 Listing faults
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @faults.each do |fault|
+    %tr
+      %td= fault.name
+      %td= link_to 'Show', fault
+      %td= link_to 'Edit', edit_fault_path(fault)
+      %td= link_to 'Destroy', fault, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Fault', new_fault_path

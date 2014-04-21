@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Investigation type:
+  = @investigation_type.investigation_type
+
+= link_to 'Edit', edit_investigation_type_path(@investigation_type)
+\|
+= link_to 'Back', investigation_types_path

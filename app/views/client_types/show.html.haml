@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Client type:
+  = @client_type.client_type
+
+= link_to 'Edit', edit_client_type_path(@client_type)
+\|
+= link_to 'Back', client_types_path

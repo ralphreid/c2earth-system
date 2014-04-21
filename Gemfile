@@ -8,6 +8,7 @@ gem 'jquery-rails', '~> 3.0.4'
 gem 'turbolinks', '~> 2.1.0'
 gem 'jbuilder', '~> 1.5.3'
 gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'haml-rails'
 
 group :doc do
   gem 'sdoc', require: false
@@ -18,6 +19,16 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.8'    # dev & test database
   gem 'figaro', '~> 0.7.0'     # env variables
   gem 'railsbricks'
+  gem 'therubyracer'
+  gem 'railsbricks'
+  gem 'erb2haml' # then run: rake haml:replace_erbs
+
+  # from previous projects
+  gem 'pry-rails'
+  gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 # Paging
@@ -56,4 +67,8 @@ end
 # Capybara
 group :test do
   gem "capybara", '~> 2.2.1'
+end
+
+group :development do
+  gem 'railroady' # rake diagram:all
 end

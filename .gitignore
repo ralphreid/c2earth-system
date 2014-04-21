@@ -18,7 +18,7 @@
 /tmp
 
 # Ignore other unneeded files.
-doc/
+# doc/
 *.swp
 *~
 .project
@@ -29,3 +29,8 @@ doc/
 # Ignore application configuration
 /config/application.yml
 .secret
+
+# Ignore vagrant related items
+id_rsa.pub
+id_rsa
+.vagrant

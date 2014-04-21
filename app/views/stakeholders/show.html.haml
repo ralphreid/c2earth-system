@@ -1,0 +1,78 @@
+%p#notice= notice
+
+%p
+  %b Stakeholder type:
+  = @stakeholder.stakeholder_type_id
+%p
+  %b Company:
+  = @stakeholder.company_id
+%p
+  %b Name:
+  = @stakeholder.name
+%p
+  %b Client type:
+  = @stakeholder.client_type_id
+%p
+  %b Name:
+  = @stakeholder.name
+%p
+  %b Address:
+  = @stakeholder.address
+%p
+  %b City:
+  = @stakeholder.city
+%p
+  %b State:
+  = @stakeholder.state
+%p
+  %b Zip:
+  = @stakeholder.zip
+%p
+  %b Work phone:
+  = @stakeholder.work_phone
+%p
+  %b Home phone:
+  = @stakeholder.home_phone
+%p
+  %b Cell phone:
+  = @stakeholder.cell_phone
+%p
+  %b Fax phone:
+  = @stakeholder.fax_phone
+%p
+  %b Email:
+  = @stakeholder.email
+%p
+  %b Address alternate:
+  = @stakeholder.address_alternate
+%p
+  %b City alternate:
+  = @stakeholder.city_alternate
+%p
+  %b State alternate:
+  = @stakeholder.state_alternate
+%p
+  %b Zip alternate:
+  = @stakeholder.zip_alternate
+%p
+  %b Work phone alternate:
+  = @stakeholder.work_phone_alternate
+%p
+  %b Home phone alternate:
+  = @stakeholder.home_phone_alternate
+%p
+  %b Cell phone alternate:
+  = @stakeholder.cell_phone_alternate
+%p
+  %b Fax phone alternate:
+  = @stakeholder.fax_phone_alternate
+%p
+  %b Email alternate:
+  = @stakeholder.email_alternate
+%p
+  %b Notes:
+  = @stakeholder.notes
+
+= link_to 'Edit', edit_stakeholder_path(@stakeholder)
+\|
+= link_to 'Back', stakeholders_path
