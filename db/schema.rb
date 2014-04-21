@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140420213522) do
+ActiveRecord::Schema.define(version: 20140420221603) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -25,6 +25,33 @@ ActiveRecord::Schema.define(version: 20140420213522) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "phases", force: true do |t|
+    t.string   "phase"
+    t.integer  "project_id"
+    t.integer  "company_id"
+    t.integer  "project_manager_id"
+    t.string   "investigation_type_id"
+    t.integer  "site_id"
+    t.integer  "stakeholder_id"
+    t.text     "description"
+    t.date     "proposal_date"
+    t.string   "proposal_number"
+    t.date     "report_date"
+    t.text     "notes"
+    t.string   "insurance_policy_number"
+    t.text     "insurance_notes"
+    t.string   "bill_name"
+    t.string   "bill_attention"
+    t.string   "bill_address"
+    t.string   "bill_city"
+    t.string   "bill_state"
+    t.string   "bill_zip"
+    t.text     "bad_pay_history"
+    t.string   "keywords"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", force: true do |t|
     t.string   "name"
