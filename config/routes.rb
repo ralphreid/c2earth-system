@@ -1,4 +1,6 @@
 C2earthSystem::Application.routes.draw do
+  resources :stakeholders
+
   resources :client_types
 
   resources :project_managers

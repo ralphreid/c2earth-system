@@ -1,0 +1,82 @@
+= form_for @stakeholder do |f|
+  - if @stakeholder.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@stakeholder.errors.count, "error")} prohibited this stakeholder from being saved:"
+      %ul
+        - @stakeholder.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :stakeholder_type_id
+    = f.number_field :stakeholder_type_id
+  .field
+    = f.label :company_id
+    = f.number_field :company_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :client_type_id
+    = f.text_field :client_type_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :city
+    = f.text_field :city
+  .field
+    = f.label :state
+    = f.text_field :state
+  .field
+    = f.label :zip
+    = f.number_field :zip
+  .field
+    = f.label :work_phone
+    = f.text_field :work_phone
+  .field
+    = f.label :home_phone
+    = f.text_field :home_phone
+  .field
+    = f.label :cell_phone
+    = f.text_field :cell_phone
+  .field
+    = f.label :fax_phone
+    = f.text_field :fax_phone
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :address_alternate
+    = f.text_field :address_alternate
+  .field
+    = f.label :city_alternate
+    = f.text_field :city_alternate
+  .field
+    = f.label :state_alternate
+    = f.text_field :state_alternate
+  .field
+    = f.label :zip_alternate
+    = f.number_field :zip_alternate
+  .field
+    = f.label :work_phone_alternate
+    = f.text_field :work_phone_alternate
+  .field
+    = f.label :home_phone_alternate
+    = f.text_field :home_phone_alternate
+  .field
+    = f.label :cell_phone_alternate
+    = f.text_field :cell_phone_alternate
+  .field
+    = f.label :fax_phone_alternate
+    = f.text_field :fax_phone_alternate
+  .field
+    = f.label :email_alternate
+    = f.text_field :email_alternate
+  .field
+    = f.label :notes
+    = f.text_area :notes
+  .actions
+    = f.submit 'Save'

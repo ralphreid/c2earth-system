@@ -1,0 +1,65 @@
+%h1 Listing stakeholders
+
+%table
+  %tr
+    %th Stakeholder type
+    %th Company
+    %th Name
+    %th Client type
+    %th Name
+    %th Address
+    %th City
+    %th State
+    %th Zip
+    %th Work phone
+    %th Home phone
+    %th Cell phone
+    %th Fax phone
+    %th Email
+    %th Address alternate
+    %th City alternate
+    %th State alternate
+    %th Zip alternate
+    %th Work phone alternate
+    %th Home phone alternate
+    %th Cell phone alternate
+    %th Fax phone alternate
+    %th Email alternate
+    %th Notes
+    %th
+    %th
+    %th
+
+  - @stakeholders.each do |stakeholder|
+    %tr
+      %td= stakeholder.stakeholder_type_id
+      %td= stakeholder.company_id
+      %td= stakeholder.name
+      %td= stakeholder.client_type_id
+      %td= stakeholder.name
+      %td= stakeholder.address
+      %td= stakeholder.city
+      %td= stakeholder.state
+      %td= stakeholder.zip
+      %td= stakeholder.work_phone
+      %td= stakeholder.home_phone
+      %td= stakeholder.cell_phone
+      %td= stakeholder.fax_phone
+      %td= stakeholder.email
+      %td= stakeholder.address_alternate
+      %td= stakeholder.city_alternate
+      %td= stakeholder.state_alternate
+      %td= stakeholder.zip_alternate
+      %td= stakeholder.work_phone_alternate
+      %td= stakeholder.home_phone_alternate
+      %td= stakeholder.cell_phone_alternate
+      %td= stakeholder.fax_phone_alternate
+      %td= stakeholder.email_alternate
+      %td= stakeholder.notes
+      %td= link_to 'Show', stakeholder
+      %td= link_to 'Edit', edit_stakeholder_path(stakeholder)
+      %td= link_to 'Destroy', stakeholder, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Stakeholder', new_stakeholder_path

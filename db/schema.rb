@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421102926) do
+ActiveRecord::Schema.define(version: 20140421105347) do
 
   create_table "client_types", force: true do |t|
     t.string   "client_type"
@@ -71,6 +71,34 @@ ActiveRecord::Schema.define(version: 20140421102926) do
     t.string   "number"
     t.integer  "prefix_id"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stakeholders", force: true do |t|
+    t.integer  "stakeholder_type_id"
+    t.integer  "company_id"
+    t.string   "name"
+    t.string   "client_type_id"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "work_phone"
+    t.string   "home_phone"
+    t.string   "cell_phone"
+    t.string   "fax_phone"
+    t.string   "email"
+    t.string   "address_alternate"
+    t.string   "city_alternate"
+    t.string   "state_alternate"
+    t.integer  "zip_alternate"
+    t.string   "work_phone_alternate"
+    t.string   "home_phone_alternate"
+    t.string   "cell_phone_alternate"
+    t.string   "fax_phone_alternate"
+    t.string   "email_alternate"
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
