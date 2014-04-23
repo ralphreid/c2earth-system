@@ -28,5 +28,34 @@ u.save!
   puts "#{i} test users created..." if (i % 5 == 0)
 
 end
-  
+
+# project_managers records
+project_managers = [
+  ["BT","Bill", "Know but needs updating"],
+  ["CH","Chris","Hundemer"],
+  ["CR","Craig","Reid"],
+  ["DB","Know but needs updating","Know but needs updating"],
+  ["DH","Know but needs updating","Know but needs updating"],
+  ["DK","Know but needs updating","Know but needs updating"],
+  ["DN","Know but needs updating","Know but needs updating"],
+  ["DP","Know but needs updating","Know but needs updating"],
+  ["EM","Know but needs updating","Know but needs updating"],
+  ["JC","Know but needs updating","Know but needs updating"],
+  ["JF","Know but needs updating","Know but needs updating"],
+  ["JR","Know but needs updating","Know but needs updating"],
+  ["JS","Know but needs updating","Know but needs updating"],
+  ["KG","Know but needs updating","Know but needs updating"],
+  ["KK","Know but needs updating","Know but needs updating"],
+  ["KS","Know but needs updating","Know but needs updating"],
+  ["KW","Know but needs updating","Know but needs updating"],
+  ["LH","Know but needs updating","Know but needs updating"],
+  ["LS","Laura Stupi","Know but needs updating"],
+  ["MB","Mark Baumann","Know but needs updating"],
+  ["MM","Mark","Macke"],
+  ["RU","Rex","Upp"],
+  ["SC","Know but needs updating","Know but needs updating"],
+  ["SM","Know but needs updating","Know but needs updating"],
+  ["UU","Know but needs updating","Know but needs updating"],
+  ["YW","Know but needs updating","Know but needs updating"]
+]
 
