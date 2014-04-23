@@ -59,3 +59,8 @@ project_managers = [
   ["YW","Know but needs updating","Know but needs updating"]
 ]
 
+project_managers.each do |row|
+  row.each do |column|
+      puts column  
+  end
+end
