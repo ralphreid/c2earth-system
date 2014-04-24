@@ -60,9 +60,9 @@ project_managers = [
 ]
 
 project_managers.each do |row|
-  row.each do |column|
-    puts column[0]
-    # ProjectManager.create(
-    #   manager_initials: column[0])
-  end
+  ProjectManager.create(
+    manager_initials: row[0],
+    manager_firstname: row[1],
+    manager_lastname: row[2]
+    )
 end
