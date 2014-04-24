@@ -1,8 +1,15 @@
 %p#notice= notice
 
 %p
-  %b Name:
-  = @project_manager.name
+  %b Manager's Initials:
+  = @project_manager.manager_initials
+%p
+  %b Manager's Firstname:
+  = @project_manager.manager_firstname
+%p
+  %b Manager's Lastname:
+  = @project_manager.manager_lastname
+
 
 = link_to 'Edit', edit_project_manager_path(@project_manager)
 \|

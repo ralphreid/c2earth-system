@@ -66,3 +66,5 @@ project_managers.each do |row|
     manager_lastname: row[2]
     )
 end
+
+puts "#{ProjectManager.count} Project Managers created"

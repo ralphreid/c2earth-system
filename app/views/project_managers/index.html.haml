@@ -2,14 +2,18 @@
 
 %table
   %tr
-    %th Name
+    %th Manager's Initials
+    %th Manager's Firstname
+    %th Manager's Lastname
     %th
     %th
     %th
 
   - @project_managers.each do |project_manager|
     %tr
-      %td= project_manager.name
+      %td= project_manager.manager_initials
+      %td= project_manager.manager_firstname
+      %td= project_manager.manager_lastname
       %td= link_to 'Show', project_manager
       %td= link_to 'Edit', edit_project_manager_path(project_manager)
       %td= link_to 'Destroy', project_manager, :method => :delete, :data => { :confirm => 'Are you sure?' }
