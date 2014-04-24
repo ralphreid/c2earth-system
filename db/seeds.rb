@@ -61,6 +61,8 @@ project_managers = [
 
 project_managers.each do |row|
   row.each do |column|
-      puts column  
+    puts column[0]
+    # ProjectManager.create(
+    #   manager_initials: column[0])
   end
 end
