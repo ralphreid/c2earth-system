@@ -1,0 +1,34 @@
+# take any file & prepare it to be consumed
+
+# find the headers in the file
+
+# checks to see if there are headers in the file
+
+# grabs the file contents
+
+# turns the contents into an array
+
+# removes the header row from the array (assume first record)
+
+# converts the array into an array of arrays
+
+# makes the object ready for consumption
+
+
+Questions
+How do I intialize a default value
+
+
+
+# projects = CSV.read(open('data.txt'))
+
+# projects.each
+
+
+"https://dl.dropboxusercontent.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt?dl=1"
+
+https://www.dropbox.com/sh/sl727ql5hyffqn5/-W3UJxiLVY
+
+
+
+dropbox_contents = open("https://dl.dropboxusercontent.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt?dl=1") {|f| f.read }

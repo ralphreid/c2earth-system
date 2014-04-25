@@ -1,46 +1,66 @@
-# require 'csv'
-
-# projects = CSV.read(open('data.txt'))
-
-# projects.each
 
 require 'open-uri'
+require 'csv'
 
 class DropboxContent
   # constructor method
-  def initialize(dropbox_url_download, header_present)
-    @dropbox_url_download, @header_present = dropbox_url_download, header_present
+  def initialize(dropbox_url, header_present)
+    @dropbox_url, @header_present = dropbox_url, header_present
   end
   
   # setter methods
+  def set_dropbox_url=(value)
+    @dropbox_url = value
+  end
 
-  # get file from drop box
-  def set_dropbox_content
-    
+  def set_header_present=(value)
+    @header_present = value
+  end
+
+  # accessor methods
+  def get_dropbox_url
+    @dropbox_url
+  end
+
+  def get_header_present
+    @header_present
   end
   
+  # instance methods
+
+  def generate_dropbox_download_url
+    # BUILD determine uri of drop box link
+    dropbox_uri = 'bar'
+    @dropbox_download_url = "https://dl.dropboxusercontent.com/#{dropbox_uri}"
+    puts @dropbox_download_url
+  end
+
+  def get_array
+    puts 'get_array'
+  end
+
+  def get_array_of_arrays
+    puts 'get_array_of_arrays'
+  end
+
+  def find_headers
+    puts 'find_headers'
+  end
+
+  def remove_header
+    puts 'remove_header'
+  end
+
+
+  # Future Feature
+  def check_for_headers
+    
+  end
+
 end
 
 
+test = DropboxContent.new("https://www.dropbox.com/sh/sl727ql5hyffqn5/-W3UJxiLVY", true)
 
 
 
-dropbox_contents = open("https://dl.dropboxusercontent.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt?dl=1") {|f| f.read }
-
-
-
-# take any file & prepare it to be consumed
-
-# find the headers in the file
-
-# checks to see if there are headers in the file
-
-# grabs the file contents
-
-# turns the contents into an array
-
-# removes the header row from the array (assume first record)
-
-# converts the array into an array of arrays
-
-# makes the object ready for consumption
