@@ -45,8 +45,6 @@
       - vim
       - python-mysqldb
 
-      # - ruby-switch
-
 
 
   # - name: "Gems: Do not install documentation locally"
@@ -71,10 +69,6 @@
     sudo: true
     with_items:
       - yard
-
-  # - name: "RailsBricks"
-  #   shell: gem install railsbricks
-  #   sudo: true
 
   - name: "Bundler"
     shell: gem install bundler

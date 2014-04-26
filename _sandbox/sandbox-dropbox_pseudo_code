@@ -38,9 +38,15 @@ require 'dropbox_content'
 
 test = DropboxContent.new("https://www.dropbox.com/sh/sl727ql5hyffqn5/-W3UJxiLVY", true)
 
+test.Dro
+
 
 str = "hello"
 str.at(0)      # => "h"
 str.at(1..3)   # => "ell"
 str.at(-2)     # => "l"
 str.at(-2..-1) # => "lo"
+
+
+test = DropboxContent.new("https://www.dropbox.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt", true)
+test.generate_dropbox_download_url
