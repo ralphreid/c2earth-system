@@ -32,3 +32,15 @@ https://www.dropbox.com/sh/sl727ql5hyffqn5/-W3UJxiLVY
 
 
 dropbox_contents = open("https://dl.dropboxusercontent.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt?dl=1") {|f| f.read }
+
+
+require 'dropbox_content'
+
+test = DropboxContent.new("https://www.dropbox.com/sh/sl727ql5hyffqn5/-W3UJxiLVY", true)
+
+
+str = "hello"
+str.at(0)      # => "h"
+str.at(1..3)   # => "ell"
+str.at(-2)     # => "l"
+str.at(-2..-1) # => "lo"
