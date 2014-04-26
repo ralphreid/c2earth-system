@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424142233) do
+ActiveRecord::Schema.define(version: 20140423193418) do
 
   create_table "client_types", force: true do |t|
     t.string   "client_type"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20140424142233) do
   end
 
   create_table "project_managers", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "manager_initials"

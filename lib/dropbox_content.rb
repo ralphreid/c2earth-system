@@ -1,7 +1,6 @@
 
 require 'open-uri'
 require 'csv'
-require "awesome_print"
 
 class DropboxContentSeed
 # constructor method

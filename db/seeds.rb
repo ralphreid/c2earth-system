@@ -31,44 +31,15 @@ u.save!
 end
 
 # project_managers records
-# project_managers = [
-#   ["BT","Bill", "Know but needs updating"],
-#   ["CH","Chris","Hundemer"],
-#   ["CR","Craig","Reid"],
-#   ["DB","Know but needs updating","Know but needs updating"],
-#   ["DH","Know but needs updating","Know but needs updating"],
-#   ["DK","Know but needs updating","Know but needs updating"],
-#   ["DN","Know but needs updating","Know but needs updating"],
-#   ["DP","Know but needs updating","Know but needs updating"],
-#   ["EM","Know but needs updating","Know but needs updating"],
-#   ["JC","Know but needs updating","Know but needs updating"],
-#   ["JF","Know but needs updating","Know but needs updating"],
-#   ["JR","Know but needs updating","Know but needs updating"],
-#   ["JS","Know but needs updating","Know but needs updating"],
-#   ["KG","Know but needs updating","Know but needs updating"],
-#   ["KK","Know but needs updating","Know but needs updating"],
-#   ["KS","Know but needs updating","Know but needs updating"],
-#   ["KW","Know but needs updating","Know but needs updating"],
-#   ["LH","Know but needs updating","Know but needs updating"],
-#   ["LS","Laura Stupi","Know but needs updating"],
-#   ["MB","Mark Baumann","Know but needs updating"],
-#   ["MM","Mark","Macke"],
-#   ["RU","Rex","Upp"],
-#   ["SC","Know but needs updating","Know but needs updating"],
-#   ["SM","Know but needs updating","Know but needs updating"],
-#   ["UU","Know but needs updating","Know but needs updating"],
-#   ["YW","Know but needs updating","Know but needs updating"]
-# ]
-
-pms = DropboxContentSeed.new("https://www.dropbox.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt", true)
+db_url = "https://www.dropbox.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt"
+pms = DropboxContentSeed.new(db_url, true)
 project_managers = pms.get_arr_of_arrs
-
 project_managers.each do |row|
   ProjectManager.create(
     manager_initials: row[0],
-    manager_firstname: row[1],
-    manager_lastname: 'Nees Updating'
-    )
+    manager_firstname: 'Nees Updating',
+    manager_lastname: 'Nees Updating',
+    name: row[1])
 end
 
 puts "#{ProjectManager.count} Project Managers created"
