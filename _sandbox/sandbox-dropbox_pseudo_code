@@ -48,5 +48,5 @@ str.at(-2)     # => "l"
 str.at(-2..-1) # => "lo"
 
 
-test = DropboxContent.new("https://www.dropbox.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt", true)
-test.generate_dropbox_download_url
+t = DropboxContent.new("https://www.dropbox.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt", true)
+

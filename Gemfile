@@ -30,6 +30,7 @@ group :development, :test do
   gem 'meta_request'
 
   gem 'awesome_print'
+  gem 'pry-debugger'
 end
 
 # Paging

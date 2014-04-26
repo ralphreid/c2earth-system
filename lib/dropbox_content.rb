@@ -3,7 +3,7 @@ require 'open-uri'
 require 'csv'
 require "awesome_print"
 
-class DropboxContent
+class DropboxContentSeed
 # constructor method
   def initialize(dropbox_url, header_present)
     @dropbox_url, @header_present = dropbox_url, header_present
@@ -34,26 +34,14 @@ class DropboxContent
     dropbox_path = @dropbox_url.at(24..-1)
     dropbox_download_ending = '?dl=1'
     # generate download url
-    @dropbox_download_url = "https://dl.dropboxusercontent.com/#{dropbox_path}#{dropbox_download_ending}"
-    ap @dropbox_download_url
+    "https://dl.dropboxusercontent.com/#{dropbox_path}#{dropbox_download_ending}"
   end
 
-  def get_array
-    puts 'get_array'
+  def get_arr_of_arrs
+    data_table = open(generate_dropbox_download_url()) { |io| io.read }
+    data_array = CSV.parse(data_table)
+    data_array.drop(1) if @header_present
   end
-
-  def get_array_of_arrays
-    puts 'get_array_of_arrays'
-  end
-
-  def find_headers
-    puts 'find_headers'
-  end
-
-  def remove_header
-    puts 'remove_header'
-  end
-
 
   # Future Feature
   def check_for_headers
@@ -61,5 +49,3 @@ class DropboxContent
   end
 
 end
-
-
