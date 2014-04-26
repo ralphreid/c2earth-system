@@ -1,7 +1,7 @@
 
 require 'open-uri'
 require 'csv'
-
+require "awesome_print"
 
 class DropboxContent
 # constructor method
@@ -31,12 +31,11 @@ end
 
 def generate_dropbox_download_url
   # strip https://www.dropbox.com from dropbox url
-
-
-
-  dropbox_path = 'bar'
-  @dropbox_download_url = "https://dl.dropboxusercontent.com/#{dropbox_path}"
-  puts @dropbox_download_url
+  dropbox_path = @dropbox_url.at(0..10)
+  ap dropbox_path
+  # generate download url
+  # @dropbox_download_url = "https://dl.dropboxusercontent.com/#{dropbox_path}"
+  # puts @dropbox_download_url
 end
 
 def get_array
