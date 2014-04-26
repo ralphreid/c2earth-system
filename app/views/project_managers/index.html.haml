@@ -3,6 +3,7 @@
 %table
   %tr
     %th Manager's Initials
+    %th Manager's Name(from source)
     %th Manager's Firstname
     %th Manager's Lastname
     %th
@@ -12,6 +13,7 @@
   - @project_managers.each do |project_manager|
     %tr
       %td= project_manager.manager_initials
+      %td= project_manager.name
       %td= project_manager.manager_firstname
       %td= project_manager.manager_lastname
       %td= link_to 'Show', project_manager

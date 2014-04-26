@@ -6,10 +6,14 @@
 %p
   %b Manager's Firstname:
   = @project_manager.manager_firstname
+
+%p
+  %b Manager's Name(from source):
+  = @project_manager.manager_firstname
+
 %p
   %b Manager's Lastname:
-  = @project_manager.manager_lastname
-
+  = @project_manager.name
 
 = link_to 'Edit', edit_project_manager_path(@project_manager)
 \|

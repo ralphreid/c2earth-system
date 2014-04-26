@@ -9,11 +9,9 @@ u = User.new(
     password: "1234",
     password_confirmation: "1234",
     admin: true
-)
+) if User.count == 0
 u.skip_confirmation!
 u.save!
-
-
 
 # Test user accounts
 (1..5).each do |i|
@@ -22,7 +20,7 @@ u.save!
       email: "user#{i}@example.com",
       password: "1234",
       password_confirmation: "1234"
-  )
+  ) if User.count == 0
   u.skip_confirmation!
   u.save!
 
@@ -37,8 +35,8 @@ project_managers = pms.get_arr_of_arrs
 project_managers.each do |row|
   ProjectManager.create(
     manager_initials: row[0],
-    manager_firstname: 'Nees Updating',
-    manager_lastname: 'Nees Updating',
+    manager_firstname: 'I want to Updated',
+    manager_lastname: 'mee too, mon',
     name: row[1])
 end
 
