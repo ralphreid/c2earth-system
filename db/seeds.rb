@@ -31,9 +31,9 @@ if User.count == 0
 end
 
 
-# client_types records
-db_url = "https://www.dropbox.com/s/ou0e9a0bat0wl1f/ProjectsbyClientType.txt"
-pms = DropboxContentSeed.new(db_url, true)
+# client_types records [ProjectsbyClientType.txt]
+db_url_client_types = "https://www.dropbox.com/s/ou0e9a0bat0wl1f/ProjectsbyClientType.txt"
+pms = DropboxContentSeed.new(db_url_client_types, true)
 client_types = pms.get_arr_of_arrs
 client_types.each do |row|
   ClientType.create(client_type: row[0])
@@ -41,7 +41,11 @@ end
 puts "#{ClientType.count} Client Types created"
 
 
-# companies records
+# companies records [AllProject_Information.txt,,,,,,,]
+db_url_all_project_info = "https://www.dropbox.com/s/z90jznpt98tvs3h/AllProject_Information.txt"
+pms = DropboxContentSeed.new(db_url_all_project_info, true)
+all_project_info = pms.get_arr_of_arrs
+
 
 
 # faults records
@@ -52,9 +56,9 @@ puts "#{ClientType.count} Client Types created"
 
 
 
-# project_managers records
-db_url = "https://www.dropbox.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt"
-pms = DropboxContentSeed.new(db_url, true)
+# project_managers records [ProjectManagers.txt]
+db_url_project_managers = "https://www.dropbox.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt"
+pms = DropboxContentSeed.new(db_url_project_managers, true)
 project_managers = pms.get_arr_of_arrs
 project_managers.each do |row|
   ProjectManager.create(
