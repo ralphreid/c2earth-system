@@ -41,16 +41,32 @@ end
 puts "#{ClientType.count} Client Types created"
 
 
-# companies records [AllProject_Information.txt,,,,,,,]
-db_url_all_project_info = "https://www.dropbox.com/s/6wnjgd7w0qoycs2/All%20Project%20Information.csv"
-pms = DropboxContentSeed.new(db_url_all_project_info, true)
-all_project_info = pms.get_arr_of_arrs
+# companies records [AllProject_Information.txt]
+# db_url_all_project_info = "https://www.dropbox.com/s/6wnjgd7w0qoycs2/All%20Project%20Information.csv"
+# pms = DropboxContentSeed.new(db_url_all_project_info, true)
+# all_project_info = pms.get_arr_of_arrs
 
 
 
 
 # faults records
 
+fault_names = [
+  "Berrocal",
+  "Berryessa",
+  "Calaveras",
+  "Crosley",
+  "Hayward",
+  "Monte Vista",
+  "N/A",
+  "San Andreas",
+  "Shannon",
+  "Zyanti"
+]
+fault_names.each do |value|
+  Fault.create(name: value)
+end
+puts "#{Fault.count} Faults created"
 
 # phases records
 
