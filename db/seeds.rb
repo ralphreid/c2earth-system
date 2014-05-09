@@ -111,5 +111,12 @@ puts "#{ProjectManager.count} Project Managers created"
 
 
 # structure_types records
-
-
+StructureType.destroy_all if StructureType.exists?
+db_url_structure_types = "https://www.dropbox.com/s/zieyd2267a2k7yh/ProjectsbyStructureType.txt"
+pms = DropboxContentSeed.new(db_url_structure_types, true)
+structure_types = pms.get_arr_of_arrs
+structure_types.each do |row|
+  StructureType.create(
+    structure_type: row[0])
+end
+puts "#{StructureType.count} Structure Types created"
