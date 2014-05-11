@@ -41,14 +41,15 @@ end
 puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
 
 # client_types records [ProjectsbyClientType.txt]
-# ClientType.destroy_all if ClientType.exists?
+ClientType.destroy_all if ClientType.exists?
 # db_url_client_types = "https://www.dropbox.com/s/ou0e9a0bat0wl1f/ProjectsbyClientType.txt"
-# pms = ArrayContent.new(db_url_client_types, true)
-# client_types = pms.get_arr_of_arrs
-# client_types.each do |row|
-#   ClientType.create(client_type: row[0])
-# end
-# puts "#{ClientType.count} Client Types created"
+db_url_client_types = "ProjectsbyClientType.txt"
+pms = ArrayContent.new(db_url_client_types, true, 'local')
+client_types = pms.get_arr_of_arrs
+client_types.each do |row|
+  ClientType.create(client_type: row[0])
+end
+puts "#{ClientType.count} Client Types created from #{pms.get_type}"
 
 
 # companies records [AllProject_Information.txt]
@@ -84,18 +85,19 @@ puts "#{Fault.count} Faults created"
 
 
 # project_managers records [ProjectManagers.txt]
-# ProjectManager.destroy_all if ProjectManager.exists?
+ProjectManager.destroy_all if ProjectManager.exists?
 # db_url_project_managers = "https://www.dropbox.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt"
-# pms = ArrayContent.new(db_url_project_managers, true)
-# project_managers = pms.get_arr_of_arrs
-# project_managers.each do |row|
-#   ProjectManager.create(
-#     manager_initials: row[0],
-#     manager_firstname: 'I want to Updated',
-#     manager_lastname: 'mee too, mon',
-#     name: row[1])
-# end
-# puts "#{ProjectManager.count} Project Managers created"
+db_url_project_managers = "ProjectManagers.txt"
+pms = ArrayContent.new(db_url_project_managers, true, 'local')
+project_managers = pms.get_arr_of_arrs
+project_managers.each do |row|
+  ProjectManager.create(
+    manager_initials: row[0],
+    manager_firstname: 'I want to Updated',
+    manager_lastname: 'mee too, mon',
+    name: row[1])
+end
+puts "#{ProjectManager.count} Project Managers created from #{pms.get_type}"
 
 
 # projects records
@@ -111,12 +113,13 @@ puts "#{Fault.count} Faults created"
 
 
 # structure_types records
-# StructureType.destroy_all if StructureType.exists?
+StructureType.destroy_all if StructureType.exists?
 # db_url_structure_types = "https://www.dropbox.com/s/zieyd2267a2k7yh/ProjectsbyStructureType.txt"
-# pms = ArrayContent.new(db_url_structure_types, true)
-# structure_types = pms.get_arr_of_arrs
-# structure_types.each do |row|
-#   StructureType.create(
-#     structure_type: row[0])
-# end
-# puts "#{StructureType.count} Structure Types created"
+db_url_structure_types = "ProjectsbyStructureType.txt"
+pms = ArrayContent.new(db_url_structure_types, true, 'local')
+structure_types = pms.get_arr_of_arrs
+structure_types.each do |row|
+  StructureType.create(
+    structure_type: row[0])
+end
+puts "#{StructureType.count} Structure Types created from #{pms.get_type}"

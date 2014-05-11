@@ -1,0 +1,27 @@
+"ManagerInitials","ManagerName"
+"BT","Bill"
+"CH","Chris Hundemer"
+"CR","Craig N. Reid"
+"DB",
+"DH",
+"DK",
+"DN",
+"DP",
+"EM",
+"JC",
+"JF",
+"JR",
+"JS",
+"KG",
+"KK",
+"KS",
+"KW",
+"LH",
+"LS","Laura Stupi"
+"MB","Mark Baumann"
+"MM","Mark Macke"
+"RU","Rex Upp"
+"SC",
+"SM",
+"UU",
+"YW",

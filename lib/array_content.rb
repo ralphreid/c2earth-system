@@ -45,13 +45,11 @@ class ArrayContent
     case @type
     when 'dropbox'
       data_table = open(generate_dropbox_download_url()) { |io| io.read }
-    
     when 'local'
       path = "#{Rails.root}/seed_content/"
       file_path = path + @url
       data_table = open(file_path) { |io| io.read }
     end
-
     data_array = CSV.parse(data_table)
     data_array.drop(1) if @header_present
   end
