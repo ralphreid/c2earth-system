@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423193418) do
+ActiveRecord::Schema.define(version: 20140511100257) do
 
   create_table "client_types", force: true do |t|
     t.string   "client_type"
@@ -122,11 +122,27 @@ ActiveRecord::Schema.define(version: 20140423193418) do
     t.datetime "updated_at"
   end
 
+  create_table "sites_structure_types", id: false, force: true do |t|
+    t.integer "site_id",           null: false
+    t.integer "structure_type_id", null: false
+  end
+
+  add_index "sites_structure_types", ["site_id", "structure_type_id"], name: "index_sites_structure_types_on_site_id_and_structure_type_id"
+  add_index "sites_structure_types", ["structure_type_id", "site_id"], name: "index_sites_structure_types_on_structure_type_id_and_site_id"
+
   create_table "stakeholder_types", force: true do |t|
     t.string   "stakeholder_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "stakeholder_types_stakeholders", id: false, force: true do |t|
+    t.integer "stakeholder_id",      null: false
+    t.integer "stakeholder_type_id", null: false
+  end
+
+  add_index "stakeholder_types_stakeholders", ["stakeholder_id", "stakeholder_type_id"], name: "by_stake_stake_type", unique: true
+  add_index "stakeholder_types_stakeholders", ["stakeholder_type_id", "stakeholder_id"], name: "by_stake_type_stake", unique: true
 
   create_table "stakeholders", force: true do |t|
     t.integer  "stakeholder_type_id"
