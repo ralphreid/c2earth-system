@@ -2,7 +2,7 @@
 require 'open-uri'
 require 'csv'
 
-class DropboxContentSeed
+class ArrayContent
 # constructor method
   def initialize(dropbox_url, header_present)
     @dropbox_url, @header_present = dropbox_url, header_present

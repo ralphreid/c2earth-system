@@ -1,4 +1,4 @@
-require 'dropbox_content'
+require 'array_content'
 # Generated with RailsBricks
 # Initial seed file to use with Devise User Model
 
@@ -33,7 +33,7 @@ end
 # investigation_types
 InvestigationType.destroy_all if InvestigationType.exists?
 db_url_investigation_types = "https://www.dropbox.com/s/ma1anecc9ys1gu1/ProjectsbyInvestigationType.txt"
-pms = DropboxContentSeed.new(db_url_investigation_types, true)
+pms = ArrayContent.new(db_url_investigation_types, true)
 investigation_types = pms.get_arr_of_arrs
 investigation_types.each do |row|
   InvestigationType.create(investigation_type: row[0])
@@ -43,7 +43,7 @@ puts "#{InvestigationType.count} Investigation Types created"
 # client_types records [ProjectsbyClientType.txt]
 ClientType.destroy_all if ClientType.exists?
 db_url_client_types = "https://www.dropbox.com/s/ou0e9a0bat0wl1f/ProjectsbyClientType.txt"
-pms = DropboxContentSeed.new(db_url_client_types, true)
+pms = ArrayContent.new(db_url_client_types, true)
 client_types = pms.get_arr_of_arrs
 client_types.each do |row|
   ClientType.create(client_type: row[0])
@@ -53,7 +53,7 @@ puts "#{ClientType.count} Client Types created"
 
 # companies records [AllProject_Information.txt]
 # db_url_all_project_info = "https://www.dropbox.com/s/6wnjgd7w0qoycs2/All%20Project%20Information.csv"
-# pms = DropboxContentSeed.new(db_url_all_project_info, true)
+# pms = ArrayContent.new(db_url_all_project_info, true)
 # all_project_info = pms.get_arr_of_arrs
 
 
@@ -86,7 +86,7 @@ puts "#{Fault.count} Faults created"
 # project_managers records [ProjectManagers.txt]
 ProjectManager.destroy_all if ProjectManager.exists?
 db_url_project_managers = "https://www.dropbox.com/sh/sl727ql5hyffqn5/FhptN8NQu3/ProjectManagers.txt"
-pms = DropboxContentSeed.new(db_url_project_managers, true)
+pms = ArrayContent.new(db_url_project_managers, true)
 project_managers = pms.get_arr_of_arrs
 project_managers.each do |row|
   ProjectManager.create(
@@ -113,7 +113,7 @@ puts "#{ProjectManager.count} Project Managers created"
 # structure_types records
 StructureType.destroy_all if StructureType.exists?
 db_url_structure_types = "https://www.dropbox.com/s/zieyd2267a2k7yh/ProjectsbyStructureType.txt"
-pms = DropboxContentSeed.new(db_url_structure_types, true)
+pms = ArrayContent.new(db_url_structure_types, true)
 structure_types = pms.get_arr_of_arrs
 structure_types.each do |row|
   StructureType.create(
