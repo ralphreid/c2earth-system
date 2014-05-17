@@ -5,8 +5,8 @@ buyer-realestate,Alan Pinel
 buyer-realestate,Martin Eisenberg
 buyer-realestate,Fox and Carskadon
 buyer-realestate,Cornish & Carey - Woodside
-buyer-realestate,"Cornish & Carey, Saratoga"
-buyer-realestate,"Cornish & Carey, Portola Val."
+buyer-realestate,Cornish & Carey, Saratoga
+buyer-realestate,Cornish & Carey, Portola Val.
 buyer-realestate,Alain Pinel
 buyer-realestate,Paul Skrabo
 buyer-realestate,Nancy Lee
@@ -86,7 +86,7 @@ buyer-agent,Kim
 buyer-agent,Sally Anderson
 buyer-agent,Kevin Keating
 buyer-agent,Mike Gill
-buyer-from-all-data,"214 Los Gatos Saratoga Road, Los Gatos 95030; 408-358-1111 ext. 119"
+buyer-from-all-data,"214 Los Gatos Saratoga Road, Los Gatos 95030 408-358-1111 ext. 119"
 buyer-from-all-data,408-242-4992
 buyer-from-all-data,Coldwell Banker
 buyer-from-all-data,408-799-8086
@@ -182,7 +182,7 @@ seller-agent,Ed Kale
 seller-agent,Samuel Chou
 seller-agent,Frank Door
 seller-from-all-data,408 354-1235 ext123
-seller-from-all-data,"(650-598-8125) 1250 San Carlos Avenue - Suite 101; San Carlos, CA  94070"
+seller-from-all-data,(650-598-8125) 1250 San Carlos Avenue - Suite 101 San Carlos, CA  94070
 seller-from-all-data,650-329-6644
 seller-from-all-data,408-729-2667
 seller-from-all-data,408-358-1111 (x162)
