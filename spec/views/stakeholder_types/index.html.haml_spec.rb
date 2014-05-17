@@ -4,10 +4,10 @@ describe "stakeholder_types/index" do
   before(:each) do
     assign(:stakeholder_types, [
       stub_model(StakeholderType,
-        :stakeholder_type => "Stakeholder Type"
+        :name => "Stakeholder Type"
       ),
       stub_model(StakeholderType,
-        :stakeholder_type => "Stakeholder Type"
+        :name => "Stakeholder Type"
       )
     ])
   end

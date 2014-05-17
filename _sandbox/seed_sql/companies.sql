@@ -1,3 +1,7 @@
+--manually remove any rows with random characters---
+
+
+
 SELECT
 "structural_engineering" AS company_type,
 StructuralCompany AS company

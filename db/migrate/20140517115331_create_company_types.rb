@@ -1,7 +1,7 @@
 class CreateCompanyTypes < ActiveRecord::Migration
   def change
     create_table :company_types do |t|
-      t.string :company_type
+      t.string :name
 
       t.timestamps
     end

@@ -1,1 +1,1 @@
-json.extract! @stakeholder_type, :id, :stakeholder_type, :created_at, :updated_at
+json.extract! @stakeholder_type, :id, :name, :created_at, :updated_at

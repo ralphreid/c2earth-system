@@ -1,7 +1,7 @@
 class CreateStakeholderTypes < ActiveRecord::Migration
   def change
     create_table :stakeholder_types do |t|
-      t.string :stakeholder_type
+      t.string :name
 
       t.timestamps
     end

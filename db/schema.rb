@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 20140517120327) do
   add_index "sites_structure_types", ["structure_type_id", "site_id"], name: "index_sites_structure_types_on_structure_type_id_and_site_id"
 
   create_table "stakeholder_types", force: true do |t|
-    t.string   "stakeholder_type"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

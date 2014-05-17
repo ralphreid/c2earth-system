@@ -43,27 +43,27 @@ puts "#{ClientType.count} Client Types created from #{pms.get_type}"
 
 # company_types
 CompanyType.destroy_all if CompanyType.exists?
-company_types = [
-  "structural_engineering",
-  "civil_engineering",
+names = [
+  "structural",
+  "civil",
   "surveying",
   "architecture",
   "legal"
 ]
-company_types.each do |value|
-  CompanyType.create!(company_type: value)
+names.each do |value|
+  CompanyType.create!(name: value)
 end
 puts "#{CompanyType.count} Company Types created from #{pms.get_type}"
 
 # companies records [AllProject_Information.txt]
-Company.destroy_all if ClientType.exists?
+Company.destroy_all if Company.exists?
 db_url_companies = 'companies.csv'
 pms = ArrayContent.new(db_url_companies, true, 'local')
 companies = pms.get_arr_of_arrs
 companies.each do |row|
   c = Company.create!( 
     company_name: row[1])
-  t = CompanyType.find_by company_type: row[0]
+  t = CompanyType.find_by name: row[0]
   c.company_types.push t
 end
 puts "#{Company.count} Companies created from #{pms.get_type}"
@@ -95,7 +95,7 @@ fault_names = [
 fault_names.each do |value|
   Fault.create!(name: value)
 end
-puts "#{Fault.count} Faults created"
+puts "#{Fault.count} Faults created from hardcoded array"
 
 # phases records
 
@@ -125,9 +125,26 @@ puts "#{ProjectManager.count} Project Managers created from #{pms.get_type}"
 
 
 # stakeholder_types records
+StakeholderType.destroy_all if StakeholderType.exists?
+names = [
+  "structural",
+  "civil",
+  "surveying",
+  "architecture",
+  "legal",
+  "seller-info",
+  "seller-agent",
+  "seller-realestate",
+  "buyer-from-all-data",
+  "buyer-agent",
+  "buyer-realestate",
+]
+names.each do |value|
+  StakeholderType.create!(name: value)
+end
+puts "#{StakeholderType.count} Stakeholder Types created from hardcoded array"
 
-
-# stakeholders
+# stakeholders records
 
 
 # structure_types records

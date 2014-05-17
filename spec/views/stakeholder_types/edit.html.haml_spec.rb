@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "stakeholder_types/edit" do
   before(:each) do
-    @stakeholder_type = assign(:stakeholder_type, stub_model(StakeholderType,
-      :stakeholder_type => "MyString"
+    @stakeholder_type = assign(:name, stub_model(StakeholderType,
+      :name => "MyString"
     ))
   end
 
