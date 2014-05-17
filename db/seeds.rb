@@ -62,7 +62,7 @@ pms = ArrayContent.new(db_url_companies, true, 'local')
 companies = pms.get_arr_of_arrs
 companies.each do |row|
   c = Company.create!( 
-    company_name: row[1])
+    name: row[1])
   t = CompanyType.find_by name: row[0]
   c.company_types.push t
 end
@@ -166,10 +166,13 @@ pms = ArrayContent.new(db_url_stakeholders, true, 'local')
 stakeholders = pms.get_arr_of_arrs
 stakeholders.each do |row|
   s = Stakeholder.create!( 
-    name: row[2])
+    name: row[2],
+    notes: row[3])
   t = StakeholderType.find_by name: row[0]
   s.stakeholder_types.push t
-  # c = Company.find_by 
+  c = Company.find_by name: row[1]
+  s.company = c
+  s.save!
 end
 puts "#{Stakeholder.count} Stakeholders created from #{pms.get_type}"
 

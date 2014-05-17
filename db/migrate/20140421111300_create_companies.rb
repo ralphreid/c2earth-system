@@ -1,7 +1,7 @@
 class CreateCompanies < ActiveRecord::Migration
   def change
     create_table :companies do |t|
-      t.string :company_name
+      t.string :name
       t.string :contact
       t.string :address
       t.string :city

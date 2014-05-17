@@ -4,7 +4,7 @@ describe "companies/index" do
   before(:each) do
     assign(:companies, [
       stub_model(Company,
-        :company_name => "Company Name",
+        :name => "Company Name",
         :contact => "Contact",
         :address => "Address",
         :city => "City",
@@ -17,7 +17,7 @@ describe "companies/index" do
         :notes => "MyText"
       ),
       stub_model(Company,
-        :company_name => "Company Name",
+        :name => "Company Name",
         :contact => "Contact",
         :address => "Address",
         :city => "City",
