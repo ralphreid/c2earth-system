@@ -30,16 +30,6 @@ if User.count == 0
   end
 end
 
-# investigation_types
-InvestigationType.destroy_all if InvestigationType.exists?
-db_url_investigation_types = "ProjectsbyInvestigationType.txt"
-pms = ArrayContent.new(db_url_investigation_types, true, 'local')
-investigation_types = pms.get_arr_of_arrs
-investigation_types.each do |row|
-  InvestigationType.create(investigation_type: row[0])
-end
-puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
-
 # client_types records [ProjectsbyClientType.txt]
 ClientType.destroy_all if ClientType.exists?
 # db_url_client_types = "https://www.dropbox.com/s/ou0e9a0bat0wl1f/ProjectsbyClientType.txt"
@@ -51,14 +41,20 @@ client_types.each do |row|
 end
 puts "#{ClientType.count} Client Types created from #{pms.get_type}"
 
-
 # companies records [AllProject_Information.txt]
 # db_url_all_project_info = "https://www.dropbox.com/s/6wnjgd7w0qoycs2/All%20Project%20Information.csv"
 # pms = ArrayContent.new(db_url_all_project_info, true)
 # all_project_info = pms.get_arr_of_arrs
 
-
-
+# investigation_types
+InvestigationType.destroy_all if InvestigationType.exists?
+db_url_investigation_types = "ProjectsbyInvestigationType.txt"
+pms = ArrayContent.new(db_url_investigation_types, true, 'local')
+investigation_types = pms.get_arr_of_arrs
+investigation_types.each do |row|
+  InvestigationType.create(investigation_type: row[0])
+end
+puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
 
 # faults records
 Fault.destroy_all if Fault.exists?
