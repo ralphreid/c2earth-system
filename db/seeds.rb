@@ -37,14 +37,22 @@ db_url_client_types = "ProjectsbyClientType.txt"
 pms = ArrayContent.new(db_url_client_types, true, 'local')
 client_types = pms.get_arr_of_arrs
 client_types.each do |row|
-  ClientType.create(client_type: row[0])
+  ClientType.create!(client_type: row[0])
 end
 puts "#{ClientType.count} Client Types created from #{pms.get_type}"
 
+# company_types
+
+
 # companies records [AllProject_Information.txt]
-# db_url_all_project_info = "https://www.dropbox.com/s/6wnjgd7w0qoycs2/All%20Project%20Information.csv"
-# pms = ArrayContent.new(db_url_all_project_info, true)
-# all_project_info = pms.get_arr_of_arrs
+Company.destroy_all if ClientType.exists?
+
+# db_url_companies = 'companies.txt'
+# pms = ArrayContent.new(db_url_companies, true, 'local')
+# companies = pms.get_arr_of_arrs
+# companies.each do |row|
+#   Company.
+# end
 
 # investigation_types
 InvestigationType.destroy_all if InvestigationType.exists?
@@ -52,7 +60,7 @@ db_url_investigation_types = "ProjectsbyInvestigationType.txt"
 pms = ArrayContent.new(db_url_investigation_types, true, 'local')
 investigation_types = pms.get_arr_of_arrs
 investigation_types.each do |row|
-  InvestigationType.create(investigation_type: row[0])
+  InvestigationType.create!(investigation_type: row[0])
 end
 puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
 
@@ -71,7 +79,7 @@ fault_names = [
   "Zyanti"
 ]
 fault_names.each do |value|
-  Fault.create(name: value)
+  Fault.create!(name: value)
 end
 puts "#{Fault.count} Faults created"
 
@@ -87,7 +95,7 @@ db_url_project_managers = "ProjectManagers.txt"
 pms = ArrayContent.new(db_url_project_managers, true, 'local')
 project_managers = pms.get_arr_of_arrs
 project_managers.each do |row|
-  ProjectManager.create(
+  ProjectManager.create!(
     manager_initials: row[0],
     manager_firstname: 'I want to Updated',
     manager_lastname: 'mee too, mon',
@@ -115,7 +123,7 @@ db_url_structure_types = "ProjectsbyStructureType.txt"
 pms = ArrayContent.new(db_url_structure_types, true, 'local')
 structure_types = pms.get_arr_of_arrs
 structure_types.each do |row|
-  StructureType.create(
+  StructureType.create!(
     structure_type: row[0])
 end
 puts "#{StructureType.count} Structure Types created from #{pms.get_type}"
