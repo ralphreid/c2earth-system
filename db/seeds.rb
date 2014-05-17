@@ -53,17 +53,20 @@ company_types = [
 company_types.each do |value|
   CompanyType.create!(company_type: value)
 end
-puts "#{CompanyType.count} Company Types created"
+puts "#{CompanyType.count} Company Types created from #{pms.get_type}"
 
 # companies records [AllProject_Information.txt]
 Company.destroy_all if ClientType.exists?
-
-# db_url_companies = 'companies.txt'
-# pms = ArrayContent.new(db_url_companies, true, 'local')
-# companies = pms.get_arr_of_arrs
-# companies.each do |row|
-#   Company.
-# end
+db_url_companies = 'companies.csv'
+pms = ArrayContent.new(db_url_companies, true, 'local')
+companies = pms.get_arr_of_arrs
+companies.each do |row|
+  c = Company.create!( 
+    company_name: row[1])
+  t = CompanyType.find_by company_type: row[0]
+  c.company_types.push t
+end
+puts "#{Company.count} Companies created from #{pms.get_type}"
 
 # investigation_types
 InvestigationType.destroy_all if InvestigationType.exists?
