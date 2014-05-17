@@ -42,7 +42,18 @@ end
 puts "#{ClientType.count} Client Types created from #{pms.get_type}"
 
 # company_types
-
+CompanyType.destroy_all if CompanyType.exists?
+company_types = [
+  "structural_engineering",
+  "civil_engineering",
+  "surveying",
+  "architecture",
+  "legal"
+]
+company_types.each do |value|
+  CompanyType.create!(company_type: value)
+end
+puts "#{CompanyType.count} Company Types created"
 
 # companies records [AllProject_Information.txt]
 Company.destroy_all if ClientType.exists?
