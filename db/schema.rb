@@ -148,15 +148,14 @@ ActiveRecord::Schema.define(version: 20140517120327) do
   end
 
   create_table "stakeholder_types_stakeholders", id: false, force: true do |t|
-    t.integer "stakeholder_id",      null: false
     t.integer "stakeholder_type_id", null: false
+    t.integer "stakeholder_id",      null: false
   end
 
   add_index "stakeholder_types_stakeholders", ["stakeholder_id", "stakeholder_type_id"], name: "by_stake_stake_type", unique: true
   add_index "stakeholder_types_stakeholders", ["stakeholder_type_id", "stakeholder_id"], name: "by_stake_type_stake", unique: true
 
   create_table "stakeholders", force: true do |t|
-    t.integer  "stakeholder_type_id"
     t.integer  "company_id"
     t.string   "name"
     t.string   "client_type_id"

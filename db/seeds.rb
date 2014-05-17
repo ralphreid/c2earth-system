@@ -127,11 +127,12 @@ puts "#{ProjectManager.count} Project Managers created from #{pms.get_type}"
 # stakeholder_types records
 StakeholderType.destroy_all if StakeholderType.exists?
 names = [
+  "survey",
   "structural",
   "civil",
   "surveying",
   "architecture",
-  "legal",
+  "attorney",
   "seller-info",
   "seller-agent",
   "seller-realestate",
@@ -144,12 +145,8 @@ names.each do |value|
 end
 puts "#{StakeholderType.count} Stakeholder Types created from hardcoded array"
 
-# stakeholders records
-
-
 # structure_types records
 StructureType.destroy_all if StructureType.exists?
-# db_url_structure_types = "https://www.dropbox.com/s/zieyd2267a2k7yh/ProjectsbyStructureType.txt"
 db_url_structure_types = "ProjectsbyStructureType.txt"
 pms = ArrayContent.new(db_url_structure_types, true, 'local')
 structure_types = pms.get_arr_of_arrs
@@ -158,3 +155,22 @@ structure_types.each do |row|
     structure_type: row[0])
 end
 puts "#{StructureType.count} Structure Types created from #{pms.get_type}"
+
+# site records
+
+
+# stakeholders records
+Stakeholder.destroy_all if Stakeholder.exists?
+db_url_stakeholders = 'company_stakeholders.csv'
+pms = ArrayContent.new(db_url_stakeholders, true, 'local')
+stakeholders = pms.get_arr_of_arrs
+stakeholders.each do |row|
+  s = Stakeholder.create!( 
+    name: row[2])
+  t = StakeholderType.find_by name: row[0]
+  s.stakeholder_types.push t
+  # c = Company.find_by 
+end
+puts "#{Stakeholder.count} Stakeholders created from #{pms.get_type}"
+
+

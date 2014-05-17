@@ -1,7 +1,6 @@
 class CreateStakeholders < ActiveRecord::Migration
   def change
     create_table :stakeholders do |t|
-      t.integer :stakeholder_type_id
       t.integer :company_id
       t.string :name
       t.string :client_type_id
