@@ -4,10 +4,10 @@ describe "company_types/index" do
   before(:each) do
     assign(:company_types, [
       stub_model(CompanyType,
-        :company_type => "Company Type"
+        :name => "Company Type"
       ),
       stub_model(CompanyType,
-        :company_type => "Company Type"
+        :name => "Company Type"
       )
     ])
   end

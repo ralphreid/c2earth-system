@@ -34,7 +34,7 @@ describe CompanyTypesController do
     it "assigns all company_types as @company_types" do
       company_type = CompanyType.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:company_types).should eq([company_type])
+      assigns(:names).should eq([company_type])
     end
   end
 
@@ -57,7 +57,7 @@ describe CompanyTypesController do
     it "assigns the requested company_type as @company_type" do
       company_type = CompanyType.create! valid_attributes
       get :edit, {:id => company_type.to_param}, valid_session
-      assigns(:company_type).should eq(company_type)
+      assigns(:name).should eq(company_type)
     end
   end
 
@@ -71,12 +71,12 @@ describe CompanyTypesController do
 
       it "assigns a newly created company_type as @company_type" do
         post :create, {:company_type => valid_attributes}, valid_session
-        assigns(:company_type).should be_a(CompanyType)
+        assigns(:name).should be_a(CompanyType)
         assigns(:company_type).should be_persisted
       end
 
       it "redirects to the created company_type" do
-        post :create, {:company_type => valid_attributes}, valid_session
+        post :create, {:name => valid_attributes}, valid_session
         response.should redirect_to(CompanyType.last)
       end
     end

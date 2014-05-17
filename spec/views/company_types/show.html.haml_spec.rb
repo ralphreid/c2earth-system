@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "company_types/show" do
   before(:each) do
     @company_type = assign(:company_type, stub_model(CompanyType,
-      :company_type => "Company Type"
+      :name => "Company Type"
     ))
   end
 
