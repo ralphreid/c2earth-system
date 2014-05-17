@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Company type:
+  = @company_type.company_type
+
+= link_to 'Edit', edit_company_type_path(@company_type)
+\|
+= link_to 'Back', company_types_path

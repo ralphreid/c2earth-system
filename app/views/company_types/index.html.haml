@@ -1,0 +1,19 @@
+%h1 Listing company_types
+
+%table
+  %tr
+    %th Company type
+    %th
+    %th
+    %th
+
+  - @company_types.each do |company_type|
+    %tr
+      %td= company_type.company_type
+      %td= link_to 'Show', company_type
+      %td= link_to 'Edit', edit_company_type_path(company_type)
+      %td= link_to 'Destroy', company_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Company type', new_company_type_path
