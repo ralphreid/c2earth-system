@@ -148,7 +148,7 @@ sites.each do |row|
     loc_latitude: row[6],
     apn: row[7],
     tombrobox: row[8])
-
+ 
 end
 puts "#{Site.count} Sites created from #{pms.get_type}"
 
@@ -201,7 +201,6 @@ end
 #   s.stakeholder_types.push t
 #   s.save!
 # end
-
 puts "#{Stakeholder.count} Stakeholders created from #{pms.get_type}"
 
 # projects records

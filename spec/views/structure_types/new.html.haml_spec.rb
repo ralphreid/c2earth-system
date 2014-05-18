@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "structure_types/new" do
   before(:each) do
     assign(:structure_type, stub_model(StructureType,
-      :structure_type => "MyString"
+      :name => "MyString"
     ).as_new_record)
   end
 

@@ -4,10 +4,10 @@ describe "structure_types/index" do
   before(:each) do
     assign(:structure_types, [
       stub_model(StructureType,
-        :structure_type => "Structure Type"
+        :name => "Structure Type"
       ),
       stub_model(StructureType,
-        :structure_type => "Structure Type"
+        :name => "Structure Type"
       )
     ])
   end
