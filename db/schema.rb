@@ -137,8 +137,8 @@ ActiveRecord::Schema.define(version: 20140517120327) do
     t.integer "structure_type_id", null: false
   end
 
-  add_index "sites_structure_types", ["site_id", "structure_type_id"], name: "index_sites_structure_types_on_site_id_and_structure_type_id"
-  add_index "sites_structure_types", ["structure_type_id", "site_id"], name: "index_sites_structure_types_on_structure_type_id_and_site_id"
+  add_index "sites_structure_types", ["site_id", "structure_type_id"], name: "by_site_structure_type", unique: true
+  add_index "sites_structure_types", ["structure_type_id", "site_id"], name: "by_structure_type_site", unique: true
 
   create_table "stakeholder_types", force: true do |t|
     t.string   "name"
