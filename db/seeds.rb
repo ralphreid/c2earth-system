@@ -125,6 +125,10 @@ require 'array_content'
 StructureType.destroy_all if StructureType.exists?
 db_url_structure_types = "structure_types.txt"
 StructureType.create!(name: 'TBC')
+StructureType.create!(name: "Barn or Water Tower")
+StructureType.create!(name: "Pipeline for Water")
+StructureType.create!(name: "Single Family Home")
+StructureType.create!(name: "Condo or Townhouse")
 pms = ArrayContent.new(db_url_structure_types, true, 'local')
 structure_types = pms.get_arr_of_arrs
 structure_types.each do |row|
@@ -150,9 +154,11 @@ sites.each do |row|
     apn: row[7],
     tombrobox: row[8],
     )
-  st = StructureType.find_by name: row[0]
-  s.structure_types.push st
-  s.save!
+  # Association needs further work
+  # st = StructureType.find_by name: row[0]
+  # s.structure_types.push st
+  # s.save
+ 
 end
 puts "#{Site.count} Sites created from #{pms.get_type}"
 
