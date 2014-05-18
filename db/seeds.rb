@@ -123,12 +123,12 @@ puts "#{Fault.count} Faults created from hardcoded array"
 
 # structure_types records
 StructureType.destroy_all if StructureType.exists?
-db_url_structure_types = "ProjectsbyStructureType.txt"
+db_url_structure_types = "structure_types.txt"
 pms = ArrayContent.new(db_url_structure_types, true, 'local')
 structure_types = pms.get_arr_of_arrs
 structure_types.each do |row|
   StructureType.create!(
-    structure_type: row[0])
+    name: row[0])
 end
 puts "#{StructureType.count} Structure Types created from #{pms.get_type}"
 
@@ -138,7 +138,7 @@ db_url_sites = "sites.txt"
 pms = ArrayContent.new(db_url_sites, true, 'local')
 sites = pms.get_arr_of_arrs
 sites.each do |row|
-  Site.create!(
+  s = Site.create!(
     number: row[0],
     address: row[1],
     city: row[2],
@@ -147,8 +147,11 @@ sites.each do |row|
     loc_longitude: row[5],
     loc_latitude: row[6],
     apn: row[7],
-    tombrobox: row[8])
- 
+    tombrobox: row[8],
+    )
+  st = StructureType.find_by name: row[10]
+  s.structure_types.push st
+  s.save!
 end
 puts "#{Site.count} Sites created from #{pms.get_type}"
 

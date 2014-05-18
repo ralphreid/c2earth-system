@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 20140517120327) do
   end
 
   create_table "structure_types", force: true do |t|
-    t.string   "structure_type"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
