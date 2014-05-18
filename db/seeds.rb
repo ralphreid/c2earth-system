@@ -150,7 +150,7 @@ sites.each do |row|
     tombrobox: row[8],
     )
   st = StructureType.find_by name: row[10]
-  s.structure_types.push st
+  s.structure_types = st
   s.save!
 end
 puts "#{Site.count} Sites created from #{pms.get_type}"
