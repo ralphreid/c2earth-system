@@ -2,7 +2,6 @@ class CreateSites < ActiveRecord::Migration
   def change
     create_table :sites do |t|
       t.string :number
-      t.integer :structure_type_id
       t.string :address
       t.string :city
       t.string :county

@@ -4,7 +4,6 @@ describe "sites/show" do
   before(:each) do
     @site = assign(:site, stub_model(Site,
       :number => "Number",
-      :structure_type_id => 1,
       :address => "Address",
       :city => "City",
       :county => "County",
@@ -21,7 +20,6 @@ describe "sites/show" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Number/)
-    rendered.should match(/1/)
     rendered.should match(/Address/)
     rendered.should match(/City/)
     rendered.should match(/County/)

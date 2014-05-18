@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(version: 20140517120327) do
 
   create_table "sites", force: true do |t|
     t.string   "number"
-    t.integer  "structure_type_id"
     t.string   "address"
     t.string   "city"
     t.string   "county"

@@ -1,9 +1,5 @@
---manually remove any rows with random characters---
-
-
-
 SELECT
-"structural_engineering" AS company_type,
+"structural" AS company_type,
 StructuralCompany AS company
 FROM all_project_information
 WHERE StructuralCompany IS NOT NULL
@@ -11,7 +7,7 @@ WHERE StructuralCompany IS NOT NULL
 Union
 
 SELECT
-"civil_engineering" AS company_type,
+"civil" AS company_type,
 CivilCompany AS company
 FROM all_project_information
 WHERE StructuralCompany IS NOT NULL
@@ -19,7 +15,7 @@ WHERE StructuralCompany IS NOT NULL
 UNION
 
 SELECT
-"surveying" AS company_type,
+"survey" AS company_type,
 SurveyCompany AS company
 FROM all_project_information
 WHERE SurveyCompany IS NOT NULL
@@ -39,3 +35,4 @@ SELECT
 AttorneyCompany AS company
 FROM all_project_information
 WHERE AttorneyCompany IS NOT NULL
+

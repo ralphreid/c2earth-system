@@ -1,5 +1,5 @@
 SELECT
-"tbc_structural" AS stakeholder_type,
+"structural" AS stakeholder_type,
 StructuralCompany AS company,
 StructuralEngineer AS stakeholder,
 StructuralInfo AS stakeholder_info
@@ -9,7 +9,7 @@ WHERE StructuralEngineer IS NOT NULL
 UNION
 
 SELECT
-"tbc_civil" AS stakeholder_type,
+"civil" AS stakeholder_type,
 CivilCompany AS company,
 CivilEngineer AS stakeholder,
 CivilInfo AS stakeholder_info
@@ -19,7 +19,7 @@ WHERE CivilEngineer IS NOT NULL
 UNION
 
 SELECT
-"survey_tbc" AS stakeholder_type,
+"survey" AS stakeholder_type,
 SurveyCompany AS company,
 Surveyor AS stakeholder,
 SurveyorInfo AS stakeholder_info
@@ -29,7 +29,7 @@ WHERE Surveyor IS NOT NULL
 UNION
 
 SELECT
-"architectural_tbc" AS stakeholder_type,
+"architecture" AS stakeholder_type,
 ArchitectCompany AS company,
 Architect AS stakeholder,
 ArchitectInfo AS stakeholder_info
@@ -39,7 +39,7 @@ WHERE Architect IS NOT NULL
 UNION
 
 SELECT
-"attorney_tbc" AS stakeholder_type,
+"attorney" AS stakeholder_type,
 AttorneyCompany AS company,
 Attorney AS stakeholder,
 AttorneyInfo AS stakeholder_info
