@@ -1,4 +1,6 @@
 C2earthSystem::Application.routes.draw do
+  resources :clients
+
   resources :company_types
 
   resources :investigation_types

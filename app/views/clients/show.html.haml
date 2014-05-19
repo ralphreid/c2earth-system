@@ -1,0 +1,69 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @client.name
+%p
+  %b Name alternate:
+  = @client.name_alternate
+%p
+  %b Address:
+  = @client.address
+%p
+  %b City:
+  = @client.city
+%p
+  %b State:
+  = @client.state
+%p
+  %b Zip:
+  = @client.zip
+%p
+  %b Work phone:
+  = @client.work_phone
+%p
+  %b Home phone:
+  = @client.home_phone
+%p
+  %b Cell phone:
+  = @client.cell_phone
+%p
+  %b Fax phone:
+  = @client.fax_phone
+%p
+  %b Email:
+  = @client.email
+%p
+  %b Address alternate:
+  = @client.address_alternate
+%p
+  %b City alternate:
+  = @client.city_alternate
+%p
+  %b State alternate:
+  = @client.state_alternate
+%p
+  %b Zip alternate:
+  = @client.zip_alternate
+%p
+  %b Work phone alternate:
+  = @client.work_phone_alternate
+%p
+  %b Home phone alternate:
+  = @client.home_phone_alternate
+%p
+  %b Cell phone alternate:
+  = @client.cell_phone_alternate
+%p
+  %b Fax phone alternate:
+  = @client.fax_phone_alternate
+%p
+  %b Email alternate:
+  = @client.email_alternate
+%p
+  %b Notes:
+  = @client.notes
+
+= link_to 'Edit', edit_client_path(@client)
+\|
+= link_to 'Back', clients_path

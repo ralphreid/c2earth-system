@@ -1,3 +1,3 @@
 class ClientType < ActiveRecord::Base
-  has_many :stakeholders
+  has_and_belongs_to_many :clients
 end

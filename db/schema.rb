@@ -11,10 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140517120327) do
+ActiveRecord::Schema.define(version: 20140519123658) do
 
   create_table "client_types", force: true do |t|
     t.string   "client_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "client_types_clients", id: false, force: true do |t|
+    t.integer "client_id"
+    t.integer "client_type_id"
+  end
+
+  create_table "clients", force: true do |t|
+    t.string   "name"
+    t.string   "name_alternate"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "work_phone"
+    t.string   "home_phone"
+    t.string   "cell_phone"
+    t.string   "fax_phone"
+    t.string   "email"
+    t.string   "address_alternate"
+    t.string   "city_alternate"
+    t.string   "state_alternate"
+    t.string   "zip_alternate"
+    t.string   "work_phone_alternate"
+    t.string   "home_phone_alternate"
+    t.string   "cell_phone_alternate"
+    t.string   "fax_phone_alternate"
+    t.string   "email_alternate"
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
