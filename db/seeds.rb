@@ -31,14 +31,17 @@ require 'array_content'
 # end
 
 # client_types records
-# ClientType.destroy_all if ClientType.exists?
-# db_url_client_types = "ProjectsbyClientType.txt"
-# pms = ArrayContent.new(db_url_client_types, true, 'local')
-# client_types = pms.get_arr_of_arrs
-# client_types.each do |row|
-#   ClientType.create!(client_type: row[0])
-# end
-# puts "#{ClientType.count} Client Types created from #{pms.get_type}"
+ClientType.destroy_all if ClientType.exists?
+db_url_client_types = "ProjectsbyClientType.txt"
+ClientType.create!(client_type: 'TBC')
+pms = ArrayContent.new(db_url_client_types, true, 'local')
+client_types = pms.get_arr_of_arrs
+client_types.each do |row|
+  ClientType.create!(client_type: row[0])
+end
+puts "#{ClientType.count} Client Types created from #{pms.get_type}"
+
+# client records
 
 # company_types
 # CompanyType.destroy_all if CompanyType.exists?
