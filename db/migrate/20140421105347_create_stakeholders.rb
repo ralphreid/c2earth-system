@@ -3,7 +3,6 @@ class CreateStakeholders < ActiveRecord::Migration
     create_table :stakeholders do |t|
       t.integer :company_id
       t.string :name
-      t.string :client_type_id
       t.string :name
       t.string :address
       t.string :city

@@ -157,7 +157,6 @@ ActiveRecord::Schema.define(version: 20140517120327) do
   create_table "stakeholders", force: true do |t|
     t.integer  "company_id"
     t.string   "name"
-    t.string   "client_type_id"
     t.string   "address"
     t.string   "city"
     t.string   "state"

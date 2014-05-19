@@ -6,8 +6,6 @@ describe "stakeholders/edit" do
       :stakeholder_type_id => 1,
       :company_id => 1,
       :name => "MyString",
-      :client_type_id => "MyString",
-      :name => "MyString",
       :address => "MyString",
       :city => "MyString",
       :state => "MyString",

@@ -6,7 +6,6 @@ describe "stakeholders/show" do
       :stakeholder_type_id => 1,
       :company_id => 2,
       :name => "Name",
-      :client_type_id => "Client Type",
       :name => "Name",
       :address => "Address",
       :city => "City",
