@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140519123658) do
 
   create_table "client_types", force: true do |t|
-    t.string   "client_type"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

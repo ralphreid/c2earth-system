@@ -70,6 +70,6 @@ class ClientTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_type_params
-      params.require(:client_type).permit(:client_type)
+      params.require(:name).permit(:name)
     end
 end

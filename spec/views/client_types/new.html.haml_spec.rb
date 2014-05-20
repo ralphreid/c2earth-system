@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "client_types/new" do
   before(:each) do
     assign(:client_type, stub_model(ClientType,
-      :client_type => "MyString"
+      :type => "MyString"
     ).as_new_record)
   end
 

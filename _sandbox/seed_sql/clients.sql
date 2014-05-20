@@ -1,5 +1,6 @@
 SELECT
 IFNULL(ClientType,"TBC") AS client_type,
+IFNULL(ClientType2, "TBC") AS client_type2,
 ClientName AS name,
 ClientName2 AS name_alternate,
 ClientAddress AS address,
@@ -20,9 +21,7 @@ ClientHomePhone2 AS home_phone_alternate,
 ClientCellPhone2 AS cell_phone_alternate,
 ClientFaxPhone2 AS fax_phone_alternate,
 ClientEmail2 AS email_alternate,
-
 CONCAT(ClientNote," ", ClientNote2) AS note
-
 FROM all_project_information
 
 

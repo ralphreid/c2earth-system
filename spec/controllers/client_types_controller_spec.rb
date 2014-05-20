@@ -42,7 +42,7 @@ describe ClientTypesController do
     it "assigns the requested client_type as @client_type" do
       client_type = ClientType.create! valid_attributes
       get :show, {:id => client_type.to_param}, valid_session
-      assigns(:client_type).should eq(client_type)
+      assigns(:type).should eq(type)
     end
   end
 

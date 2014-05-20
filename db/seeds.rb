@@ -32,16 +32,47 @@ require 'array_content'
 
 # client_types records
 ClientType.destroy_all if ClientType.exists?
-db_url_client_types = "ProjectsbyClientType.txt"
-ClientType.create!(client_type: 'TBC')
+db_url_client_types = "client_types.txt"
+ClientType.create!(name: 'TBC')
 pms = ArrayContent.new(db_url_client_types, true, 'local')
 client_types = pms.get_arr_of_arrs
 client_types.each do |row|
-  ClientType.create!(client_type: row[0])
+  ClientType.create!(name: row[0])
 end
 puts "#{ClientType.count} Client Types created from #{pms.get_type}"
 
 # client records
+Client.destroy_all if Client.exists?
+db_url_clients = 'clients.txt'
+pms = ArrayContent.new(db_url_clients, true, 'local')
+clients = pms.get_arr_of_arrs
+clients.each do |row|
+  Client.create!(
+    name: row[2],
+    name_alternate: row[3],
+    address: row[4],
+    city: row[5],
+    state: row[6],
+    zip: row[7],
+    work_phone: row[8],
+    home_phone: row[9],
+    cell_phone: row[10],
+    fax_phone: row[11],
+    email: row[12],
+    address_alternate: row[13],
+    city_alternate: row[14],
+    state_alternate: row[15],
+    zip_alternate: row[16],
+    work_phone_alternate: row[17],
+    home_phone_alternate: row[18],
+    cell_phone_alternate: row[19],
+    fax_phone_alternate: row[20],
+    email_alternate: row[21],
+    notes: row[22]
+  )
+end
+puts "#{Client.count} Client created from #{pms.get_type}"
+
 
 # company_types
 # CompanyType.destroy_all if CompanyType.exists?
@@ -125,45 +156,45 @@ puts "#{ClientType.count} Client Types created from #{pms.get_type}"
 
 
 # structure_types records
-StructureType.destroy_all if StructureType.exists?
-db_url_structure_types = "structure_types.txt"
-StructureType.create!(name: 'TBC')
-StructureType.create!(name: "Barn or Water Tower")
-StructureType.create!(name: "Pipeline for Water")
-StructureType.create!(name: "Single Family Home")
-StructureType.create!(name: "Condo or Townhouse")
-pms = ArrayContent.new(db_url_structure_types, true, 'local')
-structure_types = pms.get_arr_of_arrs
-structure_types.each do |row|
-  StructureType.create!(
-    name: row[0])
-end
-puts "#{StructureType.count} Structure Types created from #{pms.get_type}"
+# StructureType.destroy_all if StructureType.exists?
+# db_url_structure_types = "structure_types.txt"
+# StructureType.create!(name: 'TBC')
+# StructureType.create!(name: "Barn or Water Tower")
+# StructureType.create!(name: "Pipeline for Water")
+# StructureType.create!(name: "Single Family Home")
+# StructureType.create!(name: "Condo or Townhouse")
+# pms = ArrayContent.new(db_url_structure_types, true, 'local')
+# structure_types = pms.get_arr_of_arrs
+# structure_types.each do |row|
+#   StructureType.create!(
+#     name: row[0])
+# end
+# puts "#{StructureType.count} Structure Types created from #{pms.get_type}"
 
 # sites records
-Site.destroy_all if Site.exists?
-db_url_sites = "sites.txt"
-pms = ArrayContent.new(db_url_sites, true, 'local')
-sites = pms.get_arr_of_arrs
-sites.each do |row|
-  s = Site.create!(
-    number: row[10],
-    address: row[1],
-    city: row[2],
-    county: row[3],
-    loc_page: row[4],
-    loc_longitude: row[5],
-    loc_latitude: row[6],
-    apn: row[7],
-    tombrobox: row[8],
-    )
+# Site.destroy_all if Site.exists?
+# db_url_sites = "sites.txt"
+# pms = ArrayContent.new(db_url_sites, true, 'local')
+# sites = pms.get_arr_of_arrs
+# sites.each do |row|
+#   s = Site.create!(
+#     number: row[10],
+#     address: row[1],
+#     city: row[2],
+#     county: row[3],
+#     loc_page: row[4],
+#     loc_longitude: row[5],
+#     loc_latitude: row[6],
+#     apn: row[7],
+#     tombrobox: row[8],
+#     )
   # Association needs further work
   # st = StructureType.find_by name: row[0]
   # s.structure_types.push st
   # s.save
  
-end
-puts "#{Site.count} Sites created from #{pms.get_type}"
+# end
+# puts "#{Site.count} Sites created from #{pms.get_type}"
 
 # stakeholder_types records
 # StakeholderType.destroy_all if StakeholderType.exists?

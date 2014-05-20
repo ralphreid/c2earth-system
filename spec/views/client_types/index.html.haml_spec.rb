@@ -4,10 +4,10 @@ describe "client_types/index" do
   before(:each) do
     assign(:client_types, [
       stub_model(ClientType,
-        :client_type => "Client Type"
+        :type => "Client Type"
       ),
       stub_model(ClientType,
-        :client_type => "Client Type"
+        :type => "Client Type"
       )
     ])
   end
