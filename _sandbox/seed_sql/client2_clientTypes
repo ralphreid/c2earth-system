@@ -1,5 +1,5 @@
 SELECT
-IFNULL(ClientType,"TBC") AS client_type,
+ClientType2 AS client_type,
 ClientName AS name,
 ClientName2 AS name_alternate,
 ClientAddress AS address,
@@ -19,10 +19,6 @@ ClientWorkPhone2 AS work_phone_alternate,
 ClientHomePhone2 AS home_phone_alternate,
 ClientCellPhone2 AS cell_phone_alternate,
 ClientFaxPhone2 AS fax_phone_alternate,
-ClientEmail2 AS email_alternate,
-
-CONCAT(ClientNote," ", ClientNote2) AS note
-
+ClientEmail2 AS email_alternate
 FROM all_project_information
-
-
+WHERE ClientType2 IS NOT NULL
