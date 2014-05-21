@@ -75,12 +75,15 @@ clients.each do |row|
   c.save!
   client_type_to_add = row[0]
   client_type_to_add.capitalize
- 
   ct = ClientType.find_by name: client_type_to_add
   unless ct.nil?
-  # # unless ct.name.blank?
-    binding.pry if ct.nil?
-    binding.pry if c.nil?
+    c.client_types.push ct
+  end
+  c.save!
+  client_type_to_add = row[1]
+  client_type_to_add.capitalize
+  ct = ClientType.find_by name: client_type_to_add
+  unless ct.nil? or ct.name == "TBC"
     c.client_types.push ct
   end
   c.save!
