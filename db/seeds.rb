@@ -37,7 +37,9 @@ ClientType.create!(name: 'TBC')
 pms = ArrayContent.new(db_url_client_types, true, 'local')
 client_types = pms.get_arr_of_arrs
 client_types.each do |row|
-  ClientType.create!(name: row[0])
+  client_type_to_add = row[0]
+  client_type_to_add.capitalize
+  ClientType.create!(name: client_type_to_add)
 end
 puts "#{ClientType.count} Client Types created from #{pms.get_type}"
 
@@ -70,8 +72,15 @@ clients.each do |row|
     email_alternate: row[21],
     notes: row[22]
   )
-  ct = ClientType.find_by name: row[0]
-  unless ct.name.nil?
+  c.save!
+  client_type_to_add = row[0]
+  client_type_to_add.capitalize
+ 
+  ct = ClientType.find_by name: client_type_to_add
+  unless ct.nil?
+  # # unless ct.name.blank?
+    binding.pry if ct.nil?
+    binding.pry if c.nil?
     c.client_types.push ct
   end
   c.save!
