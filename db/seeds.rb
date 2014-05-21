@@ -125,33 +125,34 @@ puts "#{Company.count} Companies created from #{pms.get_type}"
 
 
 # investigation_types records
-# InvestigationType.destroy_all if InvestigationType.exists?
-# db_url_investigation_types = "ProjectsbyInvestigationType.txt"
-# pms = ArrayContent.new(db_url_investigation_types, true, 'local')
-# investigation_types = pms.get_arr_of_arrs
-# investigation_types.each do |row|
-#   InvestigationType.create!(investigation_type: row[0])
-# end
-# puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
+InvestigationType.destroy_all if InvestigationType.exists?
+db_url_investigation_types = "ProjectsbyInvestigationType.txt"
+pms = ArrayContent.new(db_url_investigation_types, true, 'local')
+investigation_types = pms.get_arr_of_arrs
+investigation_types.each do |row|
+  investigation_type_to_add = row [0]
+  investigation_type_to_add.capitalize
+  InvestigationType.create! investigation_type: investigation_type_to_add
+end
+puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
 
 # faults records
-# Fault.destroy_all if Fault.exists?
-# fault_names = [
-#   "Berrocal",
-#   "Berryessa",
-#   "Calaveras",
-#   "Crosley",
-#   "Hayward",
-#   "Monte Vista",
-#   "N/A",
-#   "San Andreas",
-#   "Shannon",
-#   "Zyanti"
-# ]
-# fault_names.each do |value|
-#   Fault.create!(name: value)
-# end
-# puts "#{Fault.count} Faults created from hardcoded array"
+Fault.destroy_all if Fault.exists?
+fault_names =
+  ["Berrocal",
+  "Berryessa",
+  "Calaveras",
+  "Crosley",
+  "Hayward",
+  "Monte Vista",
+  "N/A",
+  "San Andreas",
+  "Shannon",
+  "Zyanti"]
+fault_names.each do |value|
+  Fault.create! name: value
+end
+puts "#{Fault.count} Faults created from hardcoded array"
 
 # phases records
 
@@ -159,65 +160,60 @@ puts "#{Company.count} Companies created from #{pms.get_type}"
 
 
 # project_managers records [ProjectManagers.txt]
-# ProjectManager.destroy_all if ProjectManager.exists?
-# db_url_project_managers = "ProjectManagers.txt"
-# pms = ArrayContent.new(db_url_project_managers, true, 'local')
-# project_managers = pms.get_arr_of_arrs
-# project_managers.each do |row|
-#   ProjectManager.create!(
-#     manager_initials: row[0],
-#     manager_firstname: 'I want to Updated',
-#     manager_lastname: 'mee too, mon',
-#     name: row[1])
-# end
-# puts "#{ProjectManager.count} Project Managers created from #{pms.get_type}"
-
-
-
-
-
+ProjectManager.destroy_all if ProjectManager.exists?
+db_url_project_managers = "ProjectManagers.txt"
+pms = ArrayContent.new(db_url_project_managers, true, 'local')
+project_managers = pms.get_arr_of_arrs
+project_managers.each do |row|
+  ProjectManager.create!(
+    manager_initials: row[0],
+    manager_firstname: 'I want to Updated',
+    manager_lastname: 'mee too, mon',
+    name: row[1])
+end
+puts "#{ProjectManager.count} Project Managers created from #{pms.get_type}"
 
 
 # structure_types records
-# StructureType.destroy_all if StructureType.exists?
-# db_url_structure_types = "structure_types.txt"
-# StructureType.create!(name: 'TBC')
-# StructureType.create!(name: "Barn or Water Tower")
-# StructureType.create!(name: "Pipeline for Water")
-# StructureType.create!(name: "Single Family Home")
-# StructureType.create!(name: "Condo or Townhouse")
-# pms = ArrayContent.new(db_url_structure_types, true, 'local')
-# structure_types = pms.get_arr_of_arrs
-# structure_types.each do |row|
-#   StructureType.create!(
-#     name: row[0])
-# end
-# puts "#{StructureType.count} Structure Types created from #{pms.get_type}"
+StructureType.destroy_all if StructureType.exists?
+StructureType.create!(name: 'TBC')
+StructureType.create!(name: "Barn Or Water Tower")
+StructureType.create!(name: "Pipeline For Water")
+StructureType.create!(name: "Single Family Home")
+StructureType.create!(name: "Condo Or Townhouse")
+db_url_structure_types = "structure_types.txt"
+pms = ArrayContent.new(db_url_structure_types, true, 'local')
+structure_types = pms.get_arr_of_arrs
+structure_types.each do |row|
+  structure_type_to_add = row[0]
+  structure_type_to_add.split.map(&:capitalize).join(' ')
+  StructureType.create! name: structure_type_to_add
+end
+puts "#{StructureType.count} Structure Types created from #{pms.get_type}"
 
 # sites records
-# Site.destroy_all if Site.exists?
-# db_url_sites = "sites.txt"
-# pms = ArrayContent.new(db_url_sites, true, 'local')
-# sites = pms.get_arr_of_arrs
-# sites.each do |row|
-#   s = Site.create!(
-#     number: row[10],
-#     address: row[1],
-#     city: row[2],
-#     county: row[3],
-#     loc_page: row[4],
-#     loc_longitude: row[5],
-#     loc_latitude: row[6],
-#     apn: row[7],
-#     tombrobox: row[8],
-#     )
+Site.destroy_all if Site.exists?
+db_url_sites = "sites.txt"
+pms = ArrayContent.new(db_url_sites, true, 'local')
+sites = pms.get_arr_of_arrs
+sites.each do |row|
+  s = Site.create!(
+    number: row[10],
+    address: row[1],
+    city: row[2],
+    county: row[3],
+    loc_page: row[4],
+    loc_longitude: row[5],
+    loc_latitude: row[6],
+    apn: row[7],
+    tombrobox: row[8],
+    )
   # Association needs further work
   # st = StructureType.find_by name: row[0]
   # s.structure_types.push st
   # s.save
- 
-# end
-# puts "#{Site.count} Sites created from #{pms.get_type}"
+end
+puts "#{Site.count} Sites created from #{pms.get_type}"
 
 # stakeholder_types records
 # StakeholderType.destroy_all if StakeholderType.exists?
