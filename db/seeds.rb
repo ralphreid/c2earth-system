@@ -3,32 +3,32 @@ require 'array_content'
 # Initial seed file to use with Devise User Model
 
 # Create new user accounts only if non-exist
-# if User.count == 0
-#   # Temporary admin account
-#   u = User.new(
-#     username: "admin",
-#     email: "admin@example.com",
-#     password: "1234",
-#     password_confirmation: "1234",
-#     admin: true
-#   )
-#   u.skip_confirmation!
-#   u.save!
+if User.count == 0
+  # Temporary admin account
+  u = User.new(
+    username: "admin",
+    email: "admin@example.com",
+    password: "1234",
+    password_confirmation: "1234",
+    admin: true
+  )
+  u.skip_confirmation!
+  u.save!
 
-#   # Test user accounts
-#   (1..5).each do |i|
-#     u = User.new(
-#         username: "user#{i}",
-#         email: "user#{i}@example.com",
-#         password: "1234",
-#         password_confirmation: "1234"
-#     )
-#     u.skip_confirmation!
-#     u.save!
+  # Test user accounts
+  (1..5).each do |i|
+    u = User.new(
+        username: "user#{i}",
+        email: "user#{i}@example.com",
+        password: "1234",
+        password_confirmation: "1234"
+    )
+    u.skip_confirmation!
+    u.save!
 
-#     puts "#{i} test users created..." if (i % 5 == 0)
-#   end
-# end
+    puts "#{i} test users created..." if (i % 5 == 0)
+  end
+end
 
 # client_types records
 ClientType.destroy_all if ClientType.exists?
@@ -87,37 +87,41 @@ clients.each do |row|
     c.client_types.push ct
   end
   c.save!
-
 end
 puts "#{Client.count} Client created from #{pms.get_type}"
 
 
 # company_types
-# CompanyType.destroy_all if CompanyType.exists?
-# names = [
-#   "structural",
-#   "civil",
-#   "surveying",
-#   "architecture",
-#   "legal"
-# ]
-# names.each do |value|
-#   CompanyType.create!(name: value)
-# end
-# puts "#{CompanyType.count} Company Types created from #{pms.get_type}"
+CompanyType.destroy_all if CompanyType.exists?
+names = [
+  "Structural",
+  "Civil",
+  "Surveying",
+  "Architecture",
+  "Legal",
+  "TBC"
+]
+names.each do |value|
+  CompanyType.create!(name: value)
+end
+puts "#{CompanyType.count} Company Types created from #{pms.get_type}"
+
 
 # companies records
-# Company.destroy_all if Company.exists?
-# db_url_companies = 'companies.csv'
-# pms = ArrayContent.new(db_url_companies, true, 'local')
-# companies = pms.get_arr_of_arrs
-# companies.each do |row|
-#   c = Company.create!( 
-#     name: row[1])
-#   t = CompanyType.find_by name: row[0]
-#   c.company_types.push t
-# end
-# puts "#{Company.count} Companies created from #{pms.get_type}"
+Company.destroy_all if Company.exists?
+db_url_companies = 'companies.csv'
+pms = ArrayContent.new(db_url_companies, true, 'local')
+companies = pms.get_arr_of_arrs
+companies.each do |row|
+  c = Company.create!( name: row[1] )
+  company_to_add = row[0]
+  company_to_add.capitalize
+  t = CompanyType.find_by name: company_to_add
+  c.company_types.push t
+  c.save!
+end
+puts "#{Company.count} Companies created from #{pms.get_type}"
+
 
 # investigation_types records
 # InvestigationType.destroy_all if InvestigationType.exists?
