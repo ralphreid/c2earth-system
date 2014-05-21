@@ -47,7 +47,7 @@ db_url_clients = 'clients.txt'
 pms = ArrayContent.new(db_url_clients, true, 'local')
 clients = pms.get_arr_of_arrs
 clients.each do |row|
-  Client.create!(
+  c = Client.create!(
     name: row[2],
     name_alternate: row[3],
     address: row[4],
@@ -70,6 +70,12 @@ clients.each do |row|
     email_alternate: row[21],
     notes: row[22]
   )
+  ct = ClientType.find_by name: row[0]
+  unless ct.name.nil?
+    c.client_types.push ct
+  end
+  c.save!
+
 end
 puts "#{Client.count} Client created from #{pms.get_type}"
 
