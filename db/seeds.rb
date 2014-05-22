@@ -197,21 +197,24 @@ db_url_sites = "sites.txt"
 pms = ArrayContent.new(db_url_sites, true, 'local')
 sites = pms.get_arr_of_arrs
 sites.each do |row|
-  s = Site.create!(
-    number: row[10],
-    address: row[1],
-    city: row[2],
-    county: row[3],
-    loc_page: row[4],
-    loc_longitude: row[5],
-    loc_latitude: row[6],
-    apn: row[7],
-    tombrobox: row[8],
-    )
-  # Association needs further work
-  # st = StructureType.find_by name: row[0]
-  # s.structure_types.push st
-  # s.save
+  unless row == ["TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC"]
+    s = Site.create!(
+      number: row[9],
+      address: row[1],
+      city: row[2],
+      county: row[3],
+      loc_page: row[4],
+      loc_longitude: row[5],
+      loc_latitude: row[6],
+      apn: row[7],
+      tombrobox: row[10],
+      )
+    structure_type_to_add = row[0]
+    structure_type_to_add.split.map(&:capitalize).join(' ')
+    st = StructureType.find_by name: structure_type_to_add
+    s.structure_types.push st
+    s.save!
+  end
 end
 puts "#{Site.count} Sites created from #{pms.get_type}"
 

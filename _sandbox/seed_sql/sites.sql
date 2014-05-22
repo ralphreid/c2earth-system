@@ -1,30 +1,14 @@
 SELECT
--- 
-CASE StructureType
-WHEN "Barn/Water Tower" THEN "Barn or Water Tower"
-WHEN "Pipeline (Water)" THEN "Pipeline for Water"
-WHEN "Single-Family Home" THEN "Single Family Home"
-WHEN "Condo/Townhouse" THEN "Condo or Townhouse"
-ELSE IFNULL(StructureType,'TBC')
-END AS StructureType,
-StreetName,
-City,
-County,
-LOC_PAGE,
-LOC_LONG,
-LOC_LAT,
-APN,
-TOMBROBOX,
-Fault,
-SiteNumber AS number
-
+IFNULL(StructureType,'TBC') AS StructureType,
+IFNULL(StreetName,'TBC')AS Address,
+IFNULL(City,'TBC')AS City,
+IFNULL(County,'TBC') AS County,
+IFNULL(LOC_PAGE,'TBC') AS LOC_PAGE,
+IFNULL(LOC_LONG,'TBC') AS LOC_LONG,
+IFNULL(LOC_LAT,'TBC') AS LOC_LAT,
+IFNULL(APN,'TBC') AS APN,
+IFNULL(Fault,'TBC') AS Fault,
+IFNULL(SiteNumber,'TBC') AS SiteNumber,
+IFNULL(TOMBROBOX,'TBC') AS TOMBROBOX
 FROM all_project_information
--- WHERE StructureType = "Single-Family Home"
--- WHERE StructureType NOT IN ("Condo/Townhouse","Barn/Water Tower" )
 ORDER BY StructureType ASC
--- LIMIT 300
-
-
-
-
-
