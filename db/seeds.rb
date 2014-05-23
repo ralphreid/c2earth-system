@@ -207,12 +207,14 @@ sites.each do |row|
       loc_longitude: row[5],
       loc_latitude: row[6],
       apn: row[7],
-      tombrobox: row[10],
+      tombrobox: row[10]  
       )
     structure_type_to_add = row[0]
     structure_type_to_add.split.map(&:capitalize).join(' ')
     st = StructureType.find_by name: structure_type_to_add
-    s.structure_types.push st
+    unless st.nil?
+      s.structure_types.push st
+    end
     s.save!
   end
 end

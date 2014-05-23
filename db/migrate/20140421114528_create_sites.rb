@@ -10,7 +10,7 @@ class CreateSites < ActiveRecord::Migration
       t.decimal :loc_latitude
       t.string :apn
       t.string :tombrobox
-      t.integer :fault_id
+      t.belongs_to :fault
 
       t.timestamps
     end
