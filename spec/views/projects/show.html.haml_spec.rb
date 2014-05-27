@@ -6,7 +6,7 @@ describe "projects/show" do
       :name => "Name",
       :name_alternate => "Name Alternate",
       :number => "Number",
-      :prefix_id => 1,
+      :prefix => 1,
       :description => "MyText"
     ))
   end

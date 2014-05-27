@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :name
       t.string :name_alternate
       t.string :number
-      t.integer :prefix_id
+      t.integer :prefix
       t.text :description
 
       t.timestamps

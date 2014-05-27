@@ -154,11 +154,6 @@ fault_names.each do |value|
 end
 puts "#{Fault.count} Faults created from hardcoded array"
 
-# phases records
-
-
-
-
 # project_managers records [ProjectManagers.txt]
 ProjectManager.destroy_all if ProjectManager.exists?
 db_url_project_managers = "ProjectManagers.txt"
@@ -279,4 +274,17 @@ stakeholders.each do |row|
 end
 puts "#{Stakeholder.count} Stakeholders created from #{pms.get_type}"
 
+
 # projects records
+db_url_projects = 'projects.csv'
+pms = ArrayContent.new(db_url_projects, true, 'local')
+projects = pms.get_arr_of_arrs
+projects.each do |row|
+  p = Project.create!(
+    name: row[0],
+    name_alternate: row[1],
+    number: row[2],
+    pre
+    )
+
+# phases records

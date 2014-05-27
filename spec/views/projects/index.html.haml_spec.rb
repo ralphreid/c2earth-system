@@ -7,14 +7,14 @@ describe "projects/index" do
         :name => "Name",
         :name_alternate => "Name Alternate",
         :number => "Number",
-        :prefix_id => 1,
+        :prefix => 1,
         :description => "MyText"
       ),
       stub_model(Project,
         :name => "Name",
         :name_alternate => "Name Alternate",
         :number => "Number",
-        :prefix_id => 1,
+        :prefix => 1,
         :description => "MyText"
       )
     ])

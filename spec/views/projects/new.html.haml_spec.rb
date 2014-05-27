@@ -6,7 +6,7 @@ describe "projects/new" do
       :name => "MyString",
       :name_alternate => "MyString",
       :number => "MyString",
-      :prefix_id => 1,
+      :prefix => 1,
       :description => "MyText"
     ).as_new_record)
   end
@@ -19,7 +19,7 @@ describe "projects/new" do
       assert_select "input#project_name[name=?]", "project[name]"
       assert_select "input#project_name_alternate[name=?]", "project[name_alternate]"
       assert_select "input#project_number[name=?]", "project[number]"
-      assert_select "input#project_prefix_id[name=?]", "project[prefix_id]"
+      assert_select "input#project_prefix[name=?]", "project[prefix]"
       assert_select "textarea#project_description[name=?]", "project[description]"
     end
   end

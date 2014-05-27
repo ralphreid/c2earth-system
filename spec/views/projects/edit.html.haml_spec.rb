@@ -6,7 +6,7 @@ describe "projects/edit" do
       :name => "MyString",
       :name_alternate => "MyString",
       :number => "MyString",
-      :prefix_id => 1,
+      :prefix => 1,
       :description => "MyText"
     ))
   end
