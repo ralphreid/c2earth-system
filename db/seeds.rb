@@ -221,54 +221,62 @@ end
 puts "#{Site.count} Sites created from #{pms.get_type}"
 
 # stakeholder_types records
-# StakeholderType.destroy_all if StakeholderType.exists?
-# names = [
-#   "survey",
-#   "structural",
-#   "civil",
-#   "surveying",
-#   "architecture",
-#   "attorney",
-#   "seller-info",
-#   "seller-agent",
-#   "seller-realestate",
-#   "buyer-from-all-data",
-#   "buyer-agent",
-#   "buyer-realestate",
-# ]
-# names.each do |value|
-#   StakeholderType.create!(name: value)
-# end
-# puts "#{StakeholderType.count} Stakeholder Types created from hardcoded array"
+StakeholderType.destroy_all if StakeholderType.exists?
+names = [
+  "survey",
+  "structural",
+  "civil",
+  "surveying",
+  "architecture",
+  "attorney",
+  "seller-info",
+  "seller-agent",
+  "seller-realestate",
+  "buyer-from-all-data",
+  "buyer-agent",
+  "buyer-realestate",
+]
+names.each do |value|
+  StakeholderType.create!(name: value)
+end
+puts "#{StakeholderType.count} Stakeholder Types created from hardcoded array"
 
 # stakeholders records
-# Stakeholder.destroy_all if Stakeholder.exists?
-# db_url_stakeholders = 'company_stakeholders.csv'
-# pms = ArrayContent.new(db_url_stakeholders, true, 'local')
-# stakeholders = pms.get_arr_of_arrs
-# stakeholders.each do |row|
-#   s = Stakeholder.create!( 
-#     name: row[2],
-#     notes: row[3])
-#   t = StakeholderType.find_by name: row[0]
-#   s.stakeholder_types.push t
-#   c = Company.find_by name: row[1]
-#   s.company = c
-#   s.save!
-# end
+Stakeholder.destroy_all if Stakeholder.exists?
+db_url_stakeholders = 'company_stakeholders.csv'
+pms = ArrayContent.new(db_url_stakeholders, true, 'local')
+stakeholders = pms.get_arr_of_arrs
+stakeholders.each do |row|
+  s = Stakeholder.create!( 
+    name: row[2],
+    notes: row[3])
+  t = StakeholderType.find_by name: row[0]
+  unless t.nil?
+    s.stakeholder_types.push t
+  end
+  c = Company.find_by name: row[1]
+  unless c.nil?
+    s.company = c
+  end
+  s.save!
+end
 
 # The data seems probablamatic so find another way to impoart
-# db_url_stakeholders = 'stakeholders.csv'
-# pms = ArrayContent.new(db_url_stakeholders, true, 'local')
-# stakeholders = pms.get_arr_of_arrs
-# stakeholders.each do |row|
-#   s = Stakeholder.create!( 
-#     name: row[1])
-#   t = StakeholderType.find_by name: row[0]
-
-#   s.stakeholder_types.push t
-#   s.save!
-# end
-# puts "#{Stakeholder.count} Stakeholders created from #{pms.get_type}"
+db_url_stakeholders = 'stakeholders.csv'
+pms = ArrayContent.new(db_url_stakeholders, true, 'local')
+stakeholders = pms.get_arr_of_arrs
+stakeholders.each do |row|
+  s = Stakeholder.find_by name: row[1]
+  if s.nil?
+    s = Stakeholder.create!( 
+      name: row[1])
+    t = StakeholderType.find_by name: row[0]
+    unless t.nil?
+      s.stakeholder_types.push t
+    end
+  end
+  s.save!
+end
+puts "#{Stakeholder.count} Stakeholders created from #{pms.get_type}"
 
 # projects records
