@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 20140519123658) do
     t.string   "name"
     t.string   "name_alternate"
     t.string   "number"
-    t.integer  "prefix_id"
+    t.integer  "prefix"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
