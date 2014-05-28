@@ -1,7 +1,7 @@
 class CreatePhases < ActiveRecord::Migration
   def change
     create_table :phases do |t|
-      t.string :phase
+      t.string :title
       t.integer :project_id
       t.integer :company_id
       t.integer :project_manager_id

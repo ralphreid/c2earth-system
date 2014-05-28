@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20140519123658) do
   end
 
   create_table "phases", force: true do |t|
-    t.string   "phase"
+    t.string   "title"
     t.integer  "project_id"
     t.integer  "company_id"
     t.integer  "project_manager_id"

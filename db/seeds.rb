@@ -340,5 +340,13 @@ end
 # phases records
 case phase_switch
 when 'on'
-
+  Phase.destroy_all if Phase.exists?
+  db_url_phases = 'phases.csv'
+  pms = ArrayContent.new(db_url_phases, true, 'local')
+  phases = pms.get_arr_of_arrs
+  phases.each do |row|
+    p = Phase.create!(
+      title: "Unknown - Legacy"
+      )
+  end
 end

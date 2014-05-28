@@ -2,7 +2,7 @@
 
 %table
   %tr
-    %th Phase
+    %th Title
     %th Project
     %th Company
     %th Project manager
@@ -30,7 +30,7 @@
 
   - @phases.each do |phase|
     %tr
-      %td= phase.phase
+      %td= phase.title
       %td= phase.project_id
       %td= phase.company_id
       %td= phase.project_manager_id
