@@ -299,6 +299,7 @@ when 'on'
     end
     s.save!
   end
+  puts "#{Stakeholder.count} Stakeholders created from #{pms.get_type}"
 
   db_url_stakeholders = 'stakeholders.csv'
   pms = ArrayContent.new(db_url_stakeholders, true, 'local')
@@ -345,10 +346,13 @@ when 'on'
   pms = ArrayContent.new(db_url_phases, true, 'local')
   phases = pms.get_arr_of_arrs
   phases.each do |row|
-    # build project associations
     p = Phase.create!(
-      title: "Unknown - Legacy"
-      )
-
+      title: "Unknown - Legacy")
+    # build project associations
+    proj = Project.find_by name: row[0], name_alternate: row[1], number: row[2], prefix: row[3], description: row[4]
+    unless proj.nil?
+      proj.phases.push p
+    end
   end
+  puts "#{Phase.count} Phases created from #{pms.get_type}"
 end
