@@ -13,7 +13,7 @@ site_switch = 'off'
 stakeholder_type_switch = 'off'
 stakeholder_switch = 'off'
 project_switch = 'on'
-phase_switch = 'off'
+phase_switch = 'on'
 
 # Create new user accounts only if non-exist
 case user_switch
@@ -345,8 +345,10 @@ when 'on'
   pms = ArrayContent.new(db_url_phases, true, 'local')
   phases = pms.get_arr_of_arrs
   phases.each do |row|
+    # build project associations
     p = Phase.create!(
       title: "Unknown - Legacy"
       )
+
   end
 end
