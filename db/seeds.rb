@@ -7,12 +7,12 @@ company_type_switch = 'off'
 company_switch = 'off'
 investigation_type_switch = 'off'
 fault_switch = 'off'
-project_manager_switch = 'off'
+project_manager_switch = 'on'
 structure_type_switch = 'off'
 site_switch = 'off'
 stakeholder_type_switch = 'off'
 stakeholder_switch = 'off'
-project_switch = 'on'
+project_switch = 'off'
 phase_switch = 'on'
 
 # Create new user accounts only if non-exist
@@ -189,6 +189,11 @@ end
 case project_manager_switch
 when 'on'
   ProjectManager.destroy_all if ProjectManager.exists?
+  ProjectManager.create!(
+      manager_initials: "TBC",
+      manager_firstname: 'I want to be updated',
+      manager_lastname: 'mee too, mon',
+      name: "nothing needed here")
   db_url_project_managers = "ProjectManagers.txt"
   pms = ArrayContent.new(db_url_project_managers, true, 'local')
   project_managers = pms.get_arr_of_arrs
@@ -352,6 +357,11 @@ when 'on'
     proj = Project.find_by name: row[0], name_alternate: row[1], number: row[2], prefix: row[3], description: row[4]
     unless proj.nil?
       proj.phases.push p
+    end
+    # build project manager associations
+    manager = ProjectManager.find_by manager_initials: row[5]
+    unless manager.nil?
+      manager.phases.push p
     end
   end
   puts "#{Phase.count} Phases created from #{pms.get_type}"
