@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [
     :inside
   ]
+  helper MapHelper
 
   def home
   end
@@ -11,4 +12,5 @@ class PagesController < ApplicationController
 
   def map
   end
+
 end
