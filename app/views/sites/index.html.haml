@@ -3,7 +3,6 @@
 %table
   %tr
     %th Number
-    %th Structure type
     %th Address
     %th City
     %th County
@@ -20,7 +19,6 @@
   - @sites.each do |site|
     %tr
       %td= site.number
-      %td= site.structure_type_id
       %td= site.address
       %td= site.city
       %td= site.county

@@ -1,19 +1,19 @@
 require 'array_content'
 
-user_switch = 'off'
+user_switch = 'on'
 client_type_switch = 'off'
 client_switch = 'off'
 company_type_switch = 'off'
 company_switch = 'off'
 investigation_type_switch = 'off'
 fault_switch = 'off'
-project_manager_switch = 'on'
+project_manager_switch = 'off'
 structure_type_switch = 'off'
-site_switch = 'off'
+site_switch = 'on'
 stakeholder_type_switch = 'off'
 stakeholder_switch = 'off'
 project_switch = 'off'
-phase_switch = 'on'
+phase_switch = 'off'
 
 # Create new user accounts only if non-exist
 case user_switch

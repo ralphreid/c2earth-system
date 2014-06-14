@@ -7,6 +7,8 @@ class PagesController < ApplicationController
   end
   
   def inside
-  end 
-    
+  end
+
+  def map
+  end
 end
