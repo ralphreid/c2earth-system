@@ -162,6 +162,9 @@ ActiveRecord::Schema.define(version: 20140616140834) do
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "state_code"
+    t.integer  "zipcode"
+    t.string   "country"
   end
 
   create_table "sites_structure_types", id: false, force: true do |t|
