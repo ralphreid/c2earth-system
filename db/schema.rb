@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519123658) do
+ActiveRecord::Schema.define(version: 20140616140834) do
 
   create_table "client_types", force: true do |t|
     t.string   "name"
@@ -160,6 +160,8 @@ ActiveRecord::Schema.define(version: 20140519123658) do
     t.integer  "fault_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "sites_structure_types", id: false, force: true do |t|
