@@ -246,7 +246,8 @@ when 'on'
         loc_latitude: row[6],
         apn: row[7],
         tombrobox: row[10],
-        state_code: "CA"
+        state_code: "CA",
+        country_code: "USA"
         )
       structure_type_to_add = row[0]
       structure_type_to_add.split.map(&:capitalize).join(' ')

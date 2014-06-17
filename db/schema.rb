@@ -165,6 +165,7 @@ ActiveRecord::Schema.define(version: 20140616140834) do
     t.float    "longitude"
     t.string   "state_code"
     t.integer  "zipcode"
+    t.string   "country_code"
     t.string   "country"
   end
 

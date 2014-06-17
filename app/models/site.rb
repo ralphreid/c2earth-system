@@ -5,6 +5,7 @@ class Site < ActiveRecord::Base
     if geo = results.first
       obj.city = geo.city
       obj.zipcode = geo.postal_code
+      obj.country_code = geo.country_code
       obj.country = geo.country
       obj.state_code = geo.state_code
       obj.address = geo.address
@@ -14,7 +15,6 @@ class Site < ActiveRecord::Base
 
 
   def full_street_address
-    return "#{self.street_number.to_s} #{self.street_name}, #{self.city}, #{self.state_code}"
-    # [street, city, state, country].compact.join(', ')
+    [street_number, street_name, city, zipcode, state_code, country_code].compact.join(', ')
   end
 end

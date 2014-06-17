@@ -4,6 +4,7 @@ class AddGeoToSites < ActiveRecord::Migration
     add_column :sites, :longitude, :float
     add_column :sites, :state_code, :string
     add_column :sites, :zipcode, :integer
+    add_column :sites, :country_code, :string
     add_column :sites, :country, :string
   end
 end
