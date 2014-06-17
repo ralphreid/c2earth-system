@@ -14,7 +14,7 @@ class Site < ActiveRecord::Base
 
 
   def full_street_address
-    return "#{self.number.to_s} #{self.address}, #{self.city}, #{self.state}"
+    return "#{self.street_number.to_s} #{self.street_name}, #{self.city}, #{self.state_code}"
     # [street, city, state, country].compact.join(', ')
   end
 end

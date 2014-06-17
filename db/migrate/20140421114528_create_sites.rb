@@ -1,7 +1,8 @@
 class CreateSites < ActiveRecord::Migration
   def change
     create_table :sites do |t|
-      t.string :number
+      t.string :street_number
+      t.string :street_name
       t.string :address
       t.string :city
       t.string :county

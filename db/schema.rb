@@ -148,7 +148,8 @@ ActiveRecord::Schema.define(version: 20140616140834) do
   end
 
   create_table "sites", force: true do |t|
-    t.string   "number"
+    t.string   "street_number"
+    t.string   "street_name"
     t.string   "address"
     t.string   "city"
     t.string   "county"
