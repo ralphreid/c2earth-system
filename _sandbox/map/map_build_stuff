@@ -1,0 +1,3 @@
+MAP build stuff
+
+=> #<Site id: nil, street_number: nil, street_name: nil, address: nil, city: nil, county: nil, loc_page: nil, loc_longitude: nil, loc_latitude: nil, apn: nil, tombrobox: nil, fault_id: nil, created_at: nil, updated_at: nil, latitude: nil, longitude: nil, state_code: nil, zipcode: nil, country_code: nil, country: nil>
