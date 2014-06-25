@@ -1,6 +1,63 @@
+:css
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map-canvas { height: 400px }
+
 - title("Map")
 %h1
   Map Page
   %small views/pages/map.html.haml
 %p This is a sample map! More work based on your feedback mon
 #map-canvas
+
+:javascript
+  function initialize() {
+    console.log('working');
+    var mapOptions = {
+      center: new google.maps.LatLng(39.894, -87.937),
+      zoom: 8
+    };
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  }
+  initialize();
+
+
+
+
+
+
+-# !!!
+-# %html
+-#   %head
+  -#   %meta{content: "initial-scale=1.0, user-scalable=no", name: "viewport"}/
+  -#   :css
+  -#     html { height: 100% }
+  -#     body { height: 100%; margin: 0; padding: 0 }
+  -#     #map-canvas { height: 100% }
+  -#   %script{src: "https://maps.googleapis.com/maps/api/js?key=API_KEY", type: "text/javascript"}
+  -#     :cdata
+  -#   :javascript
+  -#     function initialize() {
+  -#       var mapOptions = {
+  -#         center: new google.maps.LatLng(-34.397, 150.644),
+  -#         zoom: 8
+  -#       };
+  -#       var map = new google.maps.Map(document.getElementById("map-canvas"),
+  -#           mapOptions);
+  -#     }
+  -#     google.maps.event.addDomListener(window, 'load', initialize);
+  -# %body
+  -#   #map-canvas
+
+  -# = javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=Figaro.env.google_maps_v3_api_key?sensor=false"
+  -# :javascript
+  -#   function initialize() {
+  -#     console.log('working');
+  -#     var mapOptions = {
+  -#       center: new google.maps.LatLng(39.894, -87.937),
+  -#       zoom: 8
+  -#     };
+  -#     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  -#   }
+  -#   initialize();
+  -# #map-canvas
