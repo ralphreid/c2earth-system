@@ -9,7 +9,7 @@ investigation_type_switch = 'off'
 fault_switch = 'off'
 project_manager_switch = 'off'
 structure_type_switch = 'off'
-site_switch = 'on'
+site_switch = 'off'
 stakeholder_type_switch = 'off'
 stakeholder_switch = 'off'
 project_switch = 'off'
@@ -293,7 +293,7 @@ when 'on'
   pms = ArrayContent.new(db_url_stakeholders, true, 'local')
   stakeholders = pms.get_arr_of_arrs
   stakeholders.each do |row|
-    s = Stakeholder.create!( 
+    s = Stakeholder.create!(
       name: row[2],
       notes: row[3])
     t = StakeholderType.find_by name: row[0]
@@ -314,7 +314,7 @@ when 'on'
   stakeholders.each do |row|
     s = Stakeholder.find_by name: row[1]
     if s.nil?
-      s = Stakeholder.create!( 
+      s = Stakeholder.create!(
         name: row[1])
       t = StakeholderType.find_by name: row[0]
       unless t.nil?
