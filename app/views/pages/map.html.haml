@@ -12,52 +12,93 @@
 
 :javascript
   function initialize() {
-    console.log('working');
     var mapOptions = {
       center: new google.maps.LatLng(37.33858108520508, -121.88556671142578),
       zoom: 8
     };
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+    // map.data.loadGeoJson('https://storage.googleapis.com/maps-devrel/google.json');
+
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(36.97401809692383, -122.03095245361328),
+      map: map,
+      title: 'Hello World!'
+    });
+
+    // setMarkers(center, radius, map);
   }
+
+  // function setMarkers(center, radius, map) {
+  //   var json = (function () {
+  //     var json = null;
+  //     $.ajax({
+  //       'async': false,
+  //       'global': false,
+  //       'url': "/sites.json",
+  //       'dataType': "json",
+  //       'success': function (data) {
+  //         json = data;
+  //       }
+  //     });
+  //     return json;
+  //   })();
+  //
+  //   var circle = new google.maps.Circle({
+  //     strokeColor: '#000000',
+  //     strokeOpacity: 0.25,
+  //     strokeWeight: 1.0,
+  //     fillColor: '#ffffff',
+  //     fillOpacity: 0.1,
+  //     clickable: false,
+  //     map: map,
+  //     center: center,
+  //     radius: radius
+  //   });
+  //
+  //   var bounds = circle.getBounds();
+  //
+  //   //loop between each of the json elements
+  //   for (var i = 0, length = json.length; i < length; i++) {
+  //     var data = json[i],
+  //     latLng = new google.maps.LatLng(data.latitude, data.longitude);
+  //
+  //     if(bounds.contains(latLng)) {
+  //       // Creating a marker and putting it on the map
+  //       var marker = new google.maps.Marker({
+  //         position: latLng,
+  //         map: map,
+  //         // title: data.content
+  //       });
+  //       // infoBox(map, marker, data);
+  //     }
+  //   }
+  //
+  //   circle.bindTo('center', marker, 'position');
+  //
+  // }
+
+
+
   initialize();
 
 
-
-
-
-
--# !!!
--# %html
--#   %head
-  -#   %meta{content: "initial-scale=1.0, user-scalable=no", name: "viewport"}/
-  -#   :css
-  -#     html { height: 100% }
-  -#     body { height: 100%; margin: 0; padding: 0 }
-  -#     #map-canvas { height: 100% }
-  -#   %script{src: "https://maps.googleapis.com/maps/api/js?key=API_KEY", type: "text/javascript"}
-  -#     :cdata
-  -#   :javascript
-  -#     function initialize() {
-  -#       var mapOptions = {
-  -#         center: new google.maps.LatLng(-34.397, 150.644),
-  -#         zoom: 8
-  -#       };
-  -#       var map = new google.maps.Map(document.getElementById("map-canvas"),
-  -#           mapOptions);
-  -#     }
-  -#     google.maps.event.addDomListener(window, 'load', initialize);
-  -# %body
-  -#   #map-canvas
-
-  -# = javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=Figaro.env.google_maps_v3_api_key?sensor=false"
-  -# :javascript
-  -#   function initialize() {
-  -#     console.log('working');
-  -#     var mapOptions = {
-  -#       center: new google.maps.LatLng(39.894, -87.937),
-  -#       zoom: 8
-  -#     };
-  -#     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-  -#   }
-  -#   initialize();
-  -# #map-canvas
+    //
+    //   function infoBox(map, marker, data) {
+    //     var infoWindow = new google.maps.InfoWindow();
+    //     // Attaching a click event to the current marker
+    //     google.maps.event.addListener(marker, "click", function(e) {
+    //         infoWindow.setContent(data.content);
+    //         infoWindow.open(map, marker);
+    //     });
+    //
+    //     // Creating a closure to retain the correct data
+    //     // Note how I pass the current data in the loop into the closure (marker, data)
+    //     (function(marker, data) {
+    //       // Attaching a click event to the current marker
+    //       google.maps.event.addListener(marker, "click", function(e) {
+    //         infoWindow.setContent(data.content);
+    //         infoWindow.open(map, marker);
+    //       });
+    //     })(marker, data);
+    // }

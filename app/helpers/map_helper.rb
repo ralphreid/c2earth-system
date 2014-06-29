@@ -8,7 +8,6 @@ module MapHelper
   end
 
   def google_api_access
-    # "#{google_api_url}?key=#{google_maps_api_key}&libraries=geometry&sensor=false"
     "#{google_api_url}?key=#{google_maps_api_key}&sensor=false"
   end
 
