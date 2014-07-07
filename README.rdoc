@@ -30,3 +30,10 @@ Please feel free to use a different markup language if you do not plan to run
 
 Remember development dependency of http://www.railsbricks.net/
 sudo gem install railsbricks
+
+# Figaro Configuration
+Remember to updated the config file as follows:
+<pre># config/application.yml<br>
+google_maps_v3_api_key: "put your key here"
+bing_maps_REST_services_key: "put your key here"</pre>
+Head to https://github.com/laserlemon/figaro for more information.
