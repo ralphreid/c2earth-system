@@ -4,18 +4,19 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :path => "vagrant-bootstrap.sh"
   config.vm.hostname = "c2earth"
   config.vm.network "private_network", ip: "192.168.67.30"
-  
+  config.vm.network :forwarded_port, guest: 22, host: 2020
+
   config.vm.synced_folder ".", "/vagrant", type: "nfs"
   # showmount -e  On OSX you can check that the folder is mounted properly with:
 
-  
+
   # config.ssh.private_key_path = [ '~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa' ]
   config.ssh.forward_agent = true
 
   config.vm.provider "virtualbox" do |v|
     v.name = "c2earth"
-    v.memory = 1024
-    #v.memory = 2048
+    # v.memory = 1024
+    v.memory = 2048
     #v.memory = 3072
     #v.memory = 512
   end
