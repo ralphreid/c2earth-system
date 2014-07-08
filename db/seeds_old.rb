@@ -15,36 +15,36 @@ stakeholder_switch = 'off'
 project_switch = 'off'
 phase_switch = 'off'
 
-# Create new user accounts only if non-exist
-case user_switch
-when 'on'
-  if User.count == 0
-    # Temporary admin account
-    u = User.new(
-      username: "admin",
-      email: "admin@example.com",
-      password: "1234",
-      password_confirmation: "1234",
-      admin: true
-    )
-    u.skip_confirmation!
-    u.save!
-
-    # Test user accounts
-    (1..5).each do |i|
-      u = User.new(
-          username: "user#{i}",
-          email: "user#{i}@example.com",
-          password: "1234",
-          password_confirmation: "1234"
-      )
-      u.skip_confirmation!
-      u.save!
-
-      puts "#{i} test users created..." if (i % 5 == 0)
-    end
-  end
-end
+# # Create new user accounts only if non-exist
+# case user_switch
+# when 'on'
+#   if User.count == 0
+#     # Temporary admin account
+#     u = User.new(
+#       username: "admin",
+#       email: "admin@example.com",
+#       password: "1234",
+#       password_confirmation: "1234",
+#       admin: true
+#     )
+#     u.skip_confirmation!
+#     u.save!
+#
+#     # Test user accounts
+#     (1..5).each do |i|
+#       u = User.new(
+#           username: "user#{i}",
+#           email: "user#{i}@example.com",
+#           password: "1234",
+#           password_confirmation: "1234"
+#       )
+#       u.skip_confirmation!
+#       u.save!
+#
+#       puts "#{i} test users created..." if (i % 5 == 0)
+#     end
+#   end
+# end
 
 # client_types records
 case client_type_switch
