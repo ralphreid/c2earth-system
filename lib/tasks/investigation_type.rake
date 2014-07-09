@@ -1,12 +1,18 @@
-namespace :legacy_data do
-  desc "Load all legacy data"
-  task load: :environment do
-    # Rake::Task["user:create_test_users"].invoke
-    # Rake::Task["client_type:create_client_types"].invoke
-    # Rake::Task["client:create_clients"].invoke
-    # Rake::Task["company_type:create_company_types"].invoke
-    # Rake::Task["company:create_companies"].invoke
-    Rake::Task["investigation_type:create_investigation_types"].invoke
+require 'array_content'
 
+namespace :investigation_type do
+  desc "Create faults"
+  task investigation_types: :environment do
+    InvestigationType.destroy_all if InvestigationType.exists?
+    db_url_investigation_types = "ProjectsbyInvestigationType.txt"
+    pms = ArrayContent.new(db_url_investigation_types, true, 'local')
+    investigation_types = pms.get_arr_of_arrs
+    investigation_types.each do |row|
+      investigation_type_to_add = row [0]
+      investigation_type_to_add.capitalize
+      InvestigationType.create! investigation_type: investigation_type_to_add
+    end
+    puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
   end
+
 end

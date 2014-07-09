@@ -149,41 +149,41 @@ phase_switch = 'off'
 #   puts "#{Company.count} Companies created from #{pms.get_type}"
 # end
 
-# investigation_types records
-case investigation_type_switch
-when 'on'
-  InvestigationType.destroy_all if InvestigationType.exists?
-  db_url_investigation_types = "ProjectsbyInvestigationType.txt"
-  pms = ArrayContent.new(db_url_investigation_types, true, 'local')
-  investigation_types = pms.get_arr_of_arrs
-  investigation_types.each do |row|
-    investigation_type_to_add = row [0]
-    investigation_type_to_add.capitalize
-    InvestigationType.create! investigation_type: investigation_type_to_add
-  end
-  puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
-end
+# # investigation_types records
+# case investigation_type_switch
+# when 'on'
+#   InvestigationType.destroy_all if InvestigationType.exists?
+#   db_url_investigation_types = "ProjectsbyInvestigationType.txt"
+#   pms = ArrayContent.new(db_url_investigation_types, true, 'local')
+#   investigation_types = pms.get_arr_of_arrs
+#   investigation_types.each do |row|
+#     investigation_type_to_add = row [0]
+#     investigation_type_to_add.capitalize
+#     InvestigationType.create! investigation_type: investigation_type_to_add
+#   end
+#   puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
+# end
 
 # faults records
-case fault_switch
-when 'on'
-  Fault.destroy_all if Fault.exists?
-    fault_names =
-    ["Berrocal",
-    "Berryessa",
-    "Calaveras",
-    "Crosley",
-    "Hayward",
-    "Monte Vista",
-    "N/A",
-    "San Andreas",
-    "Shannon",
-    "Zyanti"]
-  fault_names.each do |value|
-    Fault.create! name: value
-  end
-  puts "#{Fault.count} Faults created from hardcoded array"
-end
+# case fault_switch
+# when 'on'
+#   Fault.destroy_all if Fault.exists?
+#     fault_names =
+#     ["Berrocal",
+#     "Berryessa",
+#     "Calaveras",
+#     "Crosley",
+#     "Hayward",
+#     "Monte Vista",
+#     "N/A",
+#     "San Andreas",
+#     "Shannon",
+#     "Zyanti"]
+#   fault_names.each do |value|
+#     Fault.create! name: value
+#   end
+#   puts "#{Fault.count} Faults created from hardcoded array"
+# end
 
 # project_managers records
 case project_manager_switch
