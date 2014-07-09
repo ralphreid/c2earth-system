@@ -2,7 +2,7 @@ require 'array_content'
 
 namespace :investigation_type do
   desc "Create faults"
-  task investigation_types: :environment do
+  task create_investigation_types: :environment do
     InvestigationType.destroy_all if InvestigationType.exists?
     db_url_investigation_types = "ProjectsbyInvestigationType.txt"
     pms = ArrayContent.new(db_url_investigation_types, true, 'local')
@@ -14,5 +14,4 @@ namespace :investigation_type do
     end
     puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
   end
-
 end
