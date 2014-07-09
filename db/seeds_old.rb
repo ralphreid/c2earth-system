@@ -112,23 +112,23 @@ phase_switch = 'off'
 #   puts "#{Client.count} Client created from #{pms.get_type}"
 # end
 
-# company_types
-case company_type_switch
-when 'on'
-  CompanyType.destroy_all if CompanyType.exists?
-  names = [
-    "Structural",
-    "Civil",
-    "Surveying",
-    "Architecture",
-    "Legal",
-    "TBC"
-  ]
-  names.each do |value|
-    CompanyType.create!(name: value)
-  end
-  puts "#{CompanyType.count} Company Types created from #{pms.get_type}"
-end
+# # company_types
+# case company_type_switch
+# when 'on'
+#   CompanyType.destroy_all if CompanyType.exists?
+#   names = [
+#     "Structural",
+#     "Civil",
+#     "Surveying",
+#     "Architecture",
+#     "Legal",
+#     "TBC"
+#   ]
+#   names.each do |value|
+#     CompanyType.create!(name: value)
+#   end
+#   puts "#{CompanyType.count} Company Types created from #{pms.get_type}"
+# end
 
 # companies records
 case company_switch
