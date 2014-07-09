@@ -1,22 +1,18 @@
 require 'array_content'
 
-namespace :company do
-  desc "Create companies"
-  task create_companies: :environment do
-    Company.destroy_all if Company.exists?
-    db_url_companies = 'companies.csv'
-    pms = ArrayContent.new(db_url_companies, true, 'local')
-    companies = pms.get_arr_of_arrs
-    companies.each do |row|
-      c = Company.create!( name: row[1] )
-      type_to_add = row[0]
-      type_to_add.capitalize
-      t = CompanyType.find_by name: type_to_add
-      unless t.nil?
-        c.company_types.push t
-      end
+namespace :investigation_type do
+  desc "Create investigation types"
+  task create_investigation_types: :environment do
+    InvestigationType.destroy_all if InvestigationType.exists?
+    db_url_investigation_types = "ProjectsbyInvestigationType.txt"
+    pms = ArrayContent.new(db_url_investigation_types, true, 'local')
+    investigation_types = pms.get_arr_of_arrs
+    investigation_types.each do |row|
+      investigation_type_to_add = row [0]
+      investigation_type_to_add.capitalize
+      InvestigationType.create! investigation_type: investigation_type_to_add
     end
-    puts "#{Company.count} Companies created from #{pms.get_type}"
+    puts "#{InvestigationType.count} Investigation Types created from #{pms.get_type}"
   end
 
 end
