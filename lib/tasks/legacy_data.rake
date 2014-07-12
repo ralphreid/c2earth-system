@@ -11,5 +11,6 @@ namespace :legacy_data do
     # Rake::Task["project_manager:create_project_managers"].invoke
     # Rake::Task["structure_type:create_structure_types"].invoke
     # Rake::Task["site:create_sites"].invoke
+    Rake::Task["stakeholder_type:create_stakeholder_types"].invoke
   end
 end
