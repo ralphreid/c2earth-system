@@ -9,5 +9,6 @@ namespace :legacy_data do
     # Rake::Task["investigation_type:create_investigation_types"].invoke
     # Rake::Task["fault:create_faults"].invoke
     # Rake::Task["project_manager:create_project_managers"].invoke
+    Rake::Task["structure_type:create_structure_types"].invoke
   end
 end
