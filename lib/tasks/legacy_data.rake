@@ -7,7 +7,6 @@ namespace :legacy_data do
     # Rake::Task["company_type:create_company_types"].invoke
     # Rake::Task["company:create_companies"].invoke
     # Rake::Task["investigation_type:create_investigation_types"].invoke
-
-  # Rake::Task["fault:create_faults"].invoke
+    # Rake::Task["fault:create_faults"].invoke
   end
 end
