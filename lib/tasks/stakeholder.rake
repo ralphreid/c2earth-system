@@ -2,7 +2,7 @@ require 'array_content'
 
 namespace :stakeholder do
   desc "Create stakeholder"
-  task create_stakeholder: :environment do
+  task create_stakeholders: :environment do
     Stakeholder.destroy_all if Stakeholder.exists?
     db_url_stakeholders = 'company_stakeholders.csv'
     pms = ArrayContent.new(db_url_stakeholders, true, 'local')
