@@ -207,59 +207,59 @@ phase_switch = 'off'
 #   puts "#{ProjectManager.count} Project Managers created from #{pms.get_type}"
 # end
 
-# structure_types records
-case structure_type_switch
-when 'on'
-  StructureType.destroy_all if StructureType.exists?
-  StructureType.create!(name: 'TBC')
-  StructureType.create!(name: "Barn Or Water Tower")
-  StructureType.create!(name: "Pipeline For Water")
-  StructureType.create!(name: "Single Family Home")
-  StructureType.create!(name: "Condo Or Townhouse")
-  db_url_structure_types = "structure_types.txt"
-  pms = ArrayContent.new(db_url_structure_types, true, 'local')
-  structure_types = pms.get_arr_of_arrs
-  structure_types.each do |row|
-    structure_type_to_add = row[0]
-    structure_type_to_add.split.map(&:capitalize).join(' ')
-    StructureType.create! name: structure_type_to_add
-  end
-  puts "#{StructureType.count} Structure Types created from #{pms.get_type}"
-end
+# # structure_types records
+# case structure_type_switch
+# when 'on'
+#   StructureType.destroy_all if StructureType.exists?
+#   StructureType.create!(name: 'TBC')
+#   StructureType.create!(name: "Barn Or Water Tower")
+#   StructureType.create!(name: "Pipeline For Water")
+#   StructureType.create!(name: "Single Family Home")
+#   StructureType.create!(name: "Condo Or Townhouse")
+#   db_url_structure_types = "structure_types.txt"
+#   pms = ArrayContent.new(db_url_structure_types, true, 'local')
+#   structure_types = pms.get_arr_of_arrs
+#   structure_types.each do |row|
+#     structure_type_to_add = row[0]
+#     structure_type_to_add.split.map(&:capitalize).join(' ')
+#     StructureType.create! name: structure_type_to_add
+#   end
+#   puts "#{StructureType.count} Structure Types created from #{pms.get_type}"
+# end
 
 # sites records
-case site_switch
-when 'on'
-  Site.destroy_all if Site.exists?
-  db_url_sites = "sites.txt"
-  pms = ArrayContent.new(db_url_sites, true, 'local')
-  sites = pms.get_arr_of_arrs
-  sites.each do |row|
-    unless row == ["TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC"]
-      s = Site.create!(
-        street_number: row[9],
-        street_name: row[1],
-        city: row[2],
-        county: row[3],
-        loc_page: row[4],
-        loc_longitude: row[5],
-        loc_latitude: row[6],
-        apn: row[7],
-        tombrobox: row[10],
-        state_code: "CA",
-        country_code: "USA"
-        )
-      structure_type_to_add = row[0]
-      structure_type_to_add.split.map(&:capitalize).join(' ')
-      st = StructureType.find_by name: structure_type_to_add
-      unless st.nil?
-        s.structure_types.push st
-      end
-      s.save!
-    end
-  end
-  puts "#{Site.count} Sites created from #{pms.get_type}"
-end
+# case site_switch
+# when 'on'
+#   Site.destroy_all if Site.exists?
+#   db_url_sites = "sites.txt"
+#   pms = ArrayContent.new(db_url_sites, true, 'local')
+#   sites = pms.get_arr_of_arrs
+#   sites.each do |row|
+#     unless row == ["TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC"]
+#       s = Site.create!(
+#         street_number: row[9],
+#         street_name: row[1],
+#         city: row[2],
+#         county: row[3],
+#         loc_page: row[4],
+#         loc_longitude: row[5],
+#         loc_latitude: row[6],
+#         apn: row[7],
+#         tombrobox: row[10],
+#         state_code: "CA",
+#         country_code: "USA"
+#         )
+#       structure_type_to_add = row[0]
+#       structure_type_to_add.split.map(&:capitalize).join(' ')
+#       st = StructureType.find_by name: structure_type_to_add
+#       unless st.nil?
+#         s.structure_types.push st
+#       end
+#       s.save!
+#     end
+#   end
+#   puts "#{Site.count} Sites created from #{pms.get_type}"
+# end
 
 # stakeholder_types records
 case stakeholder_type_switch
