@@ -261,29 +261,29 @@ phase_switch = 'off'
 #   puts "#{Site.count} Sites created from #{pms.get_type}"
 # end
 
-# stakeholder_types records
-case stakeholder_type_switch
-when 'on'
-  StakeholderType.destroy_all if StakeholderType.exists?
-  names = [
-    "survey",
-    "structural",
-    "civil",
-    "surveying",
-    "architecture",
-    "attorney",
-    "seller-info",
-    "seller-agent",
-    "seller-realestate",
-    "buyer-from-all-data",
-    "buyer-agent",
-    "buyer-realestate",
-  ]
-  names.each do |value|
-    StakeholderType.create!(name: value)
-  end
-  puts "#{StakeholderType.count} Stakeholder Types created from hardcoded array"
-end
+# # stakeholder_types records
+# case stakeholder_type_switch
+# when 'on'
+#   StakeholderType.destroy_all if StakeholderType.exists?
+#   names = [
+#     "survey",
+#     "structural",
+#     "civil",
+#     "surveying",
+#     "architecture",
+#     "attorney",
+#     "seller-info",
+#     "seller-agent",
+#     "seller-realestate",
+#     "buyer-from-all-data",
+#     "buyer-agent",
+#     "buyer-realestate",
+#   ]
+#   names.each do |value|
+#     StakeholderType.create!(name: value)
+#   end
+#   puts "#{StakeholderType.count} Stakeholder Types created from hardcoded array"
+# end
 
 # stakeholders records
 case stakeholder_switch
