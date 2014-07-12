@@ -10,8 +10,10 @@ namespace :legacy_data do
     # Rake::Task["fault:create_faults"].invoke
     # Rake::Task["project_manager:create_project_managers"].invoke
     # Rake::Task["structure_type:create_structure_types"].invoke
-    # Rake::Task["site:create_sites"].invoke
+    Rake::Task["site:create_sites"].invoke
     # Rake::Task["stakeholder_type:create_stakeholder_types"].invoke
-    Rake::Task["stakeholder:create_stakeholders"].invoke
+    # Rake::Task["stakeholder:create_stakeholders"].invoke
+    # Rake::Task["project:create_projects"].invoke
+    # Rake::Task["phase:create_phases"].invoke
   end
 end
