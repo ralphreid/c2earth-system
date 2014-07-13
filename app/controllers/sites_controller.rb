@@ -62,6 +62,14 @@ class SitesController < ApplicationController
     end
   end
 
+  def lookup
+    if params[:city]
+      @sites = Site.lookup(params[:city])
+    else
+      @sites = Site.lookup
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_site
