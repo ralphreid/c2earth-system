@@ -41,4 +41,4 @@ id_rsa
 .vagrant
 
 # Ignore local seed content
-/seed_content
+/seed_content/

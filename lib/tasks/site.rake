@@ -6,7 +6,8 @@ namespace :site do
     Site.destroy_all if Site.exists?
     db_url_sites = "sites.txt"
     pms = ArrayContent.new(db_url_sites, true, 'local')
-    sites = pms.get_arr_of_arrs.first(50)
+    # sites = pms.get_arr_of_arrs.first(50)
+    sites = pms.get_arr_of_arrs
     sites.each do |row|
       unless row == ["TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC"]
         s = Site.create!(
