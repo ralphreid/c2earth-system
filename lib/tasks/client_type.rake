@@ -2,13 +2,16 @@ require 'array_content'
 
 namespace :client_type do
   desc "Create client types"
-  task create_client_types: :environment do
+  task :create_client_types, [:type] => :environment do |t, args|
     ClientType.destroy_all if ClientType.exists?
-    # db_url_client_types = "client_types.txt"
-    # Figaro.env.google_maps_v3_api_key
-    db_url_client_types = Figaro.env.DROPBOX_LEGACY_DATA_URL_CLIENT_TYPES
+    case args.type
+      when 'local'
+        db_url_client_types = "client_types.txt"
+      when 'dropbox'
+        db_url_client_types = Figaro.env.DROPBOX_LEGACY_DATA_URL_CLIENT_TYPES
+    end
     ClientType.create!(name: 'TBC')
-    pms = ArrayContent.new(db_url_client_types, true, 'dropbox')
+    pms = ArrayContent.new(db_url_client_types, true, args.type)
     client_types = pms.get_arr_of_arrs
     client_types.each do |row|
       client_type_to_add = row[0]

@@ -56,7 +56,7 @@ class ArrayContent
 
   # Future Feature
   def check_for_headers
-
+    
   end
 
 end
