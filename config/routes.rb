@@ -7,7 +7,13 @@ C2earthSystem::Application.routes.draw do
 
   resources :structure_types
 
-  resources :sites
+  resources :sites do
+    # member do
+    #   ... get closed_down   localhost/sites/1/closed_down
+    collection do
+      post 'lookup_address'   #localhost/sites/lookup_address
+    end
+  end
 
   resources :stakeholder_types
 
@@ -25,17 +31,17 @@ C2earthSystem::Application.routes.draw do
 
   resources :projects
 
-  root "pages#home"    
+  root "pages#home"
   get "home", to: "pages#home", as: "home"
   get "inside", to: "pages#inside", as: "inside"
   get "map", to: "pages#map", as: "map"
-  
-    
+
+
   devise_for :users
-  
+
   namespace :admin do
     root "base#index"
     resources :users
   end
-  
+
 end
