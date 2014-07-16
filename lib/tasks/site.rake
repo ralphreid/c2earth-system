@@ -2,12 +2,27 @@ require 'array_content'
 
 namespace :site do
   desc "Create stites"
-  task create_sites: :environment do
+  task :create_sites, [:sample_amount] => :environment do |t, args|
     Site.destroy_all if Site.exists?
-    db_url_sites = "sites.txt"
-    pms = ArrayContent.new(db_url_sites, true, 'local')
-    # sites = pms.get_arr_of_arrs.first(50)
-    sites = pms.get_arr_of_arrs
+    environment = Rails.env
+
+    type = case environment
+      when "development" then "local"
+      else "dropbox"
+    end
+    db_url_sites = case type
+      when 'local' then "sites.txt"
+      when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_SITES
+    end
+    pms = ArrayContent.new(db_url_sites, true, type)
+    sample_amount = args.sample_amount
+    sample_amount = sample_amount.to_i
+    sites = case sample_amount
+    when 0
+        pms.get_arr_of_arrs
+      else
+        pms.get_arr_of_arrs.sample(sample_amount)
+    end
     sites.each do |row|
       unless row == ["TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC"]
         s = Site.create!(

@@ -2,16 +2,27 @@ require 'array_content'
 
 namespace :client do
   desc "Create clients"
-  task :create_clients, [:type] => :environment do |t, args|
+  task :create_clients, [:sample_amount] => :environment do |t, args|
     Client.destroy_all if Client.exists?
-    case args.type
-    when 'local'
-      db_url_clients = 'clients.txt'
-    when 'dropbox'
-      db_url_clients = Figaro.env.DROPBOX_LEGACY_DATA_URL_CLIENTS
+    environment = Rails.env
+    type = case environment
+      when "development" then "local"
+      else "dropbox"
     end
-    pms = ArrayContent.new(db_url_clients, true, args.type)
-    clients = pms.get_arr_of_arrs
+    db_url_clients = case type
+      when 'local' then 'clients.txt'
+      when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_CLIENTS
+    end
+    pms = ArrayContent.new(db_url_clients, true, type)
+    sample_amount = args.sample_amount
+    sample_amount = sample_amount.to_i
+    # clients = pms.get_arr_of_arrs
+    clients = case sample_amount
+    when 0
+        pms.get_arr_of_arrs
+      else
+        pms.get_arr_of_arrs.sample(sample_amount)
+    end
     clients.each do |row|
       c = Client.create!(
         name: row[2],

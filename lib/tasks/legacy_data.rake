@@ -1,7 +1,7 @@
 namespace :legacy_data do
   desc "Load all legacy data"
   task load: :environment do
-    Rake::Task["user:create_test_users"].invoke
+    # Rake::Task["user:create_test_users"].invoke
     Rake::Task["client_type:create_client_types"].invoke
     Rake::Task["client:create_clients"].invoke
     Rake::Task["company_type:create_company_types"].invoke
@@ -13,7 +13,7 @@ namespace :legacy_data do
     Rake::Task["site:create_sites"].invoke
     Rake::Task["stakeholder_type:create_stakeholder_types"].invoke
     Rake::Task["stakeholder:create_stakeholders"].invoke
-    # Rake::Task["project:create_projects"].invoke
-    # Rake::Task["phase:create_phases"].invoke
+    # # Rake::Task["project:create_projects"].invoke
+    # # Rake::Task["phase:create_phases"].invoke
   end
 end
