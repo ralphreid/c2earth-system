@@ -9,7 +9,7 @@
   %small views/pages/map.html.haml
 %p This is a sample map! More work based on your feedback mon
 
-= form_tag lookup_address_sites_path, remote: true do
+= form_tag lookup_address_sites_path, method: :get do
   = label_tag "address"
   = text_field_tag "address"
 

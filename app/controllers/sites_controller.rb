@@ -71,8 +71,8 @@ class SitesController < ApplicationController
   end
 
   def lookup_address
-    # @sites = Site.near(params[:address], 1)
-    @sites = Site.near('San Jose California', 3)
+    @sites = Site.near(params[:address], 50)
+    #@sites = Site.near('San Jose California', 3)
     #
     # respond_to do |format|
     #   format.json { @sites.to_json }

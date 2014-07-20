@@ -11,7 +11,7 @@ C2earthSystem::Application.routes.draw do
     # member do
     #   ... get closed_down   localhost/sites/1/closed_down
     collection do
-      post 'lookup_address'   #localhost/sites/lookup_address
+      get 'lookup_address'   #localhost/sites/lookup_address
     end
   end
 
