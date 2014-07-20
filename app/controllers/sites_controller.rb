@@ -71,12 +71,12 @@ class SitesController < ApplicationController
   end
 
   def lookup_address
-    @sites = Site.near(params[:address], 50)
-    #@sites = Site.near('San Jose California', 3)
-    #
-    # respond_to do |format|
-    #   format.json { @sites.to_json }
-    # end
+    @sites = Site.near(params[:address], 1)
+    @hash = Gmaps4rails.build_markers(@sites) do |site, marker|
+      marker.lat site.latitude
+      marker.lng site.longitude
+      marker.infowindow "test string"
+    end
   end
 
   private
