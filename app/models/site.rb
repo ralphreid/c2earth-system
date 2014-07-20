@@ -11,22 +11,8 @@ class Site < ActiveRecord::Base
   # # reverse_geocoded_by :city_lat, :city_long
   after_validation :geocode
 
-  DEFAULT_CITY = "San Jose"
-
-
   def full_street_address
     [street_number, street_name, city, zipcode, state_code, country_code].compact.join(', ')
   end
 
-  def city_location
-    [city, state_code, country_code].compact.join(',')
-  end
-
-  def self.lookup(city=nil)
-    unless city.nil?
-      Site.where(city: city)
-    else
-      Site.where(city: DEFAULT_CITY)
-    end
-  end
 end

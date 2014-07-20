@@ -2,17 +2,24 @@
 
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
 
-%div{style: 'width: 800px;'}
-  #map{style: 'width: 800px; height: 400px;'}
+<div id='map-canvas' style='width:100%;min-height:400px;'></div>
 
-%div
-  - @sites.each do |site|
-    = [site.latitude, site.longitude].join(' - ')
 
 :javascript
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(#{raw @hash.to_json});
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
+  function build() {
+    handler = Gmaps.build('Google');
+    handler.buildMap({
+      provider: {
+        // pass in other Google Maps API options here
+        disableDefaultUI: true,
+        mapTypeID: google.maps.MapTypeId.TERRAIN
+      },
+      internal: {id: 'map-canvas'}},
+    function(){
+        markers = handler.addMarkers(#{raw @hash.to_json});
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+    });
+  }
+  google.maps.event.addDomListener(window, 'resize', build);
+  google.maps.event.addDomListener(window, 'load', build);
