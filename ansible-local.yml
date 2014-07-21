@@ -44,6 +44,7 @@
       - yard
       - vim
       - python-mysqldb
+      - heroku-toolbelt
 
 
 
@@ -91,8 +92,3 @@
 
   - name: "Heroku: Install"
     shell: wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-
-
-
-
-
