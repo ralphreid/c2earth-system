@@ -21,9 +21,9 @@ Vagrant.configure("2") do |config|
     #v.memory = 512
   end
 
-  config.vm.provider :bing do |bing, override|
-    bing.BING_API_KEY = config.user.bing.BING_API_KEY
-  end
+  # config.vm.provider :bing do |bing, override|
+  #   bing.BING_API_KEY = config.user.bing.BING_API_KEY
+  # end
 
-  config.vm.provision :shell, :path => "nugrant2env.sh" unless
+  # config.vm.provision :shell, :path => "nugrant2env.sh" unless
 end
