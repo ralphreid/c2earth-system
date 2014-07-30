@@ -20,3 +20,9 @@ Figaro Configuration
 ====================
 
 Remember to updated the config file as follows:<pre># config/application.yml<br> google_maps_v3_api_key: "put your key here" bing_maps_REST_services_key: "put your key here"</pre> Head to https://github.com/laserlemon/figaro for more information.
+
+Not currently using Figaro. Check https://github.com/maoueh/nugrant#method-2
+
+in Host<pre>vagrant user env --format script</pre>
+
+in Guest<pre>. nugrant2env.sh</pre>

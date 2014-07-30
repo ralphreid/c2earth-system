@@ -41,6 +41,7 @@ id_rsa
 .vagrant
 .vagrantuser
 nugrant2env.sh
+.env
 
 # Ignore local seed content
 /seed_content/
