@@ -44,7 +44,6 @@
       - yard
       - vim
       - python-mysqldb
-      - heroku-toolbelt
 
 
 
