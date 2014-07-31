@@ -1,6 +1,6 @@
 module MapHelper
   def google_maps_api_key
-    Figaro.env.google_maps_v3_api_key
+    ENV["google_maps_v3_api_key"]
   end
 
   def google_api_url

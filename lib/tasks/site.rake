@@ -12,7 +12,7 @@ namespace :site do
     end
     db_url_sites = case type
       when 'local' then "sites.txt"
-      when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_SITES
+      when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_SITES"]
     end
     pms = ArrayContent.new(db_url_sites, true, type)
     sample_amount = args.sample_amount

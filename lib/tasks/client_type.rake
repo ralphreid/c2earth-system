@@ -11,7 +11,7 @@ namespace :client_type do
     end
     db_url_client_types = case type
       when 'local' then"client_types.txt"
-      when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_CLIENT_TYPES
+      when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_CLIENT_TYPES"]
     end
     ClientType.create!(name: 'TBC')
     pms = ArrayContent.new(db_url_client_types, true, type)
