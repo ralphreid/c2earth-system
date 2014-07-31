@@ -71,7 +71,7 @@ class SitesController < ApplicationController
   end
 
   def lookup_address
-    @sites = Site.near(params[:address], 1.5)
+    @sites = Site.near(params[:address], 5)
     @hash = Gmaps4rails.build_markers(@sites) do |site, marker|
       marker.lat site.latitude
       marker.lng site.longitude

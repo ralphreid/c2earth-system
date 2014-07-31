@@ -1,5 +1,5 @@
 Geocoder.configure(
-  lookup: :bing,
-  api_key: ENV["BING_API_KEY"],
-  timeout: 10
+  # lookup: :bing,
+  # api_key: ENV["BING_API_KEY"],
+  timeout: 20
 )
