@@ -1,0 +1,1 @@
+heroku_run bundle exec rake legacy_data:load c2earthsystem
