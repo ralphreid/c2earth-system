@@ -16,7 +16,7 @@ namespace :structure_type do
     end
     db_url_structure_types = case type
       when 'local' then "structure_types.txt"
-      when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_STRUCTURE_TYPES
+      when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_STRUCTURE_TYPES"]
     end
     pms = ArrayContent.new(db_url_structure_types, true, type)
     sample_amount = args.sample_amount

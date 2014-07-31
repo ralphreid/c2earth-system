@@ -11,7 +11,7 @@ namespace :client do
     end
     db_url_clients = case type
       when 'local' then 'clients.txt'
-      when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_CLIENTS
+      when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_CLIENTS"]
     end
     pms = ArrayContent.new(db_url_clients, true, type)
     sample_amount = args.sample_amount
