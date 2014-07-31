@@ -63,7 +63,7 @@ namespace :client do
       end
       c.save!
     end
-    puts "#{Client.count} client types exist and created from #{pms.get_type}"
+    puts "#{Client.count} clients exist and created from #{pms.get_type}"
   end
 
 end
