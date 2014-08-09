@@ -32,7 +32,6 @@ group :development, :test do
   gem 'meta_request'
   gem 'awesome_print'
   gem 'pry-debugger'
-  gem 'pry-byebug'
 end
 
 # Paging
