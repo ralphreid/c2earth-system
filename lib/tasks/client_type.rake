@@ -11,9 +11,9 @@ namespace :client_type do
     # end
 
     if Rails.env.development?
-      type = 'dropbox'
-    else
       type = 'local'
+    else
+      type = 'dropbox'
     end
     db_url_client_types = case type
       when 'local' then "client_types.txt"
