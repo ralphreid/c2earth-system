@@ -2,6 +2,7 @@
 
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
 
+
 <div id='map-canvas' style='width:100%;min-height:400px;'></div>
 
 
@@ -9,8 +10,14 @@
   var geocoder;
   var target_coords;
   geocoder = new google.maps.Geocoder();
-  target_coords = geocoder.geocode({address: "San Jose, CA" },
-    function(locResult){ console.log (locResult[0].geometry.location.lat(), locResult[0].geometry.location.lng()]});
+
+  geocoder.geocode( { 'address': "#{@address}" }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        target_coords = results[0].geometry.location;
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
 
   function build() {
     handler = Gmaps.build('Google');
@@ -23,9 +30,26 @@
       internal: {id: 'map-canvas'}},
 
       function(){
-        handler.map.centerOn(target_coords)
+        handler.map.centerOn(target_coords);
+        new google.maps.Marker({
+          position: new google.maps.LatLng(target_coords),
+          map: handler.map,
+          title: 'Hello World!'
+        });
       }
     );
+
+
   }
+
+  // create a marker object for each item
+  function createMarker(val, map) {
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(val.latitude, val.longitude),
+      map: map,
+      title: 'Hello World!'
+    });
+  }
+
   google.maps.event.addDomListener(window, 'resize', build);
   google.maps.event.addDomListener(window, 'load', build);

@@ -78,6 +78,7 @@ class SitesController < ApplicationController
     #   marker.lng site.longitude
     #   marker.infowindow "test string"
     # end
+    @address = params[:address]
   end
 
   private
