@@ -37,7 +37,10 @@
   // iterate through it
   function handleMapJson( data) {
     console.log(data);
-    var map = createMap();
+    // var map = createMap();
+    // testing the map
+    map = createMap();
+
     $.each(data, function(i, val) {
       console.log(val);
       createMarker(val, map);
