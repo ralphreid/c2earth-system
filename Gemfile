@@ -26,7 +26,7 @@ group :development, :test do
   # from previous projects
   gem 'pry-rails'
   gem 'quiet_assets'
-  gem 'better_errors'
+  # gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'awesome_print'
