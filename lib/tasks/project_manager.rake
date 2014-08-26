@@ -11,7 +11,7 @@ namespace :project_manager do
     end
     db_url_project_managers = case type
       when 'local' then"ProjectManagers.txt"
-      when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_PROJECT_MANAGERS
+      when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_PROJECT_MANAGERS"]
     end
     ProjectManager.create!(
       manager_initials: "TBC",

@@ -36,6 +36,7 @@ class ArrayContent
   def generate_dropbox_download_url
     # strip https://www.dropbox.com from dropbox url
     dropbox_path = @url.at(24..-1)
+    # dropbox_path = @url.slice! "https://www.dropbox.com/s/"
     dropbox_download_ending = '?dl=1'
     # generate download url
     "https://dl.dropboxusercontent.com/#{dropbox_path}#{dropbox_download_ending}"
@@ -56,7 +57,7 @@ class ArrayContent
 
   # Future Feature
   def check_for_headers
-    
+
   end
 
 end

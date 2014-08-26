@@ -12,7 +12,7 @@ namespace :investigation_type do
     type = 'dropbox'
     db_url_investigation_types = case type
     when 'local' then "ProjectsbyInvestigationType.txt"
-    when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_INVESTIGATION_TYPE
+    when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_INVESTIGATION_TYPE"]
     end
     pms = ArrayContent.new(db_url_investigation_types, true, type)
     sample_amount = args.sample_amount

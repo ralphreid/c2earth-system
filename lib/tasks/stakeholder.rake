@@ -11,7 +11,7 @@ namespace :stakeholder do
     end
     db_url_stakeholders = case type
       when 'local' then 'company_stakeholders.csv'
-      when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_COMPANY_STAKEHOLDERS
+      when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_COMPANY_STAKEHOLDERS"]
     end
     pms = ArrayContent.new(db_url_stakeholders, true, type)
     sample_amount = args.sample_amount
@@ -40,7 +40,7 @@ namespace :stakeholder do
 
     db_url_stakeholders = case type
       when 'local' then "stakeholders.csv"
-      when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_STAKEHOLDERS
+      when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_STAKEHOLDERS"]
     end
     pms = ArrayContent.new(db_url_stakeholders, true, type)
     sample_amount = args.sample_amount

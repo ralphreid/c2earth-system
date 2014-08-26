@@ -11,7 +11,7 @@ namespace :company do
   end
   db_url_companies = case type
     when 'local' then 'companies.csv'
-    when 'dropbox' then Figaro.env.DROPBOX_LEGACY_DATA_URL_COMPANIES
+    when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_COMPANIES"]
   end
   pms = ArrayContent.new(db_url_companies, true, type)
   sample_amount = args.sample_amount
