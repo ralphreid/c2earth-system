@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713100549) do
+ActiveRecord::Schema.define(version: 20140827193019) do
+
+  create_table "activities", force: true do |t|
+    t.integer  "site_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "client_types", force: true do |t|
     t.string   "name"
@@ -170,14 +177,6 @@ ActiveRecord::Schema.define(version: 20140713100549) do
     t.float    "city_lat"
     t.float    "city_long"
   end
-
-  create_table "sites_structure_types", id: false, force: true do |t|
-    t.integer "site_id",           null: false
-    t.integer "structure_type_id", null: false
-  end
-
-  add_index "sites_structure_types", ["site_id", "structure_type_id"], name: "index_sites_structure_types_on_site_id_and_structure_type_id"
-  add_index "sites_structure_types", ["structure_type_id", "site_id"], name: "index_sites_structure_types_on_structure_type_id_and_site_id"
 
   create_table "stakeholder_types", force: true do |t|
     t.string   "name"

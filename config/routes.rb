@@ -8,7 +8,9 @@ C2earthSystem::Application.routes.draw do
   resources :structure_types
 
   resources :sites do
-    # member do
+    member do
+      get 'projects'
+    end
     #   ... get closed_down   localhost/sites/1/closed_down
     collection do
       get 'lookup_address'   #localhost/sites/lookup_address

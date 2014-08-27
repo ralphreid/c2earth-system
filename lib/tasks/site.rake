@@ -38,12 +38,13 @@ namespace :site do
           state_code: "CA",
           country_code: "USA"
           )
-        structure_type_to_add = row[0]
-        structure_type_to_add.split.map(&:capitalize).join(' ')
-        st = StructureType.find_by name: structure_type_to_add
-        unless st.nil?
-          s.structure_types.push st
-        end
+          # this may need to be updated to associate sites to project
+        # structure_type_to_add = row[0]
+        # structure_type_to_add.split.map(&:capitalize).join(' ')
+        # st = StructureType.find_by name: structure_type_to_add
+        # unless st.nil?
+        #   s.structure_types.push st
+        # end
         s.save!
       end
     end

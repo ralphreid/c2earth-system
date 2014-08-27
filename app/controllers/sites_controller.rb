@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_site, only: [:show, :edit, :update, :destroy]
+  before_action :set_site, only: [:show, :edit, :update, :destroy, :projects]
 
   # GET /sites
   # GET /sites.json
@@ -79,6 +79,11 @@ class SitesController < ApplicationController
     #   marker.infowindow "test string"
     # end
     @address = params[:address]
+  end
+
+  # GET /sites/id/projects
+  def projects
+    @projects = @site.projects
   end
 
   private
