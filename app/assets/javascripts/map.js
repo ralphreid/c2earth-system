@@ -16,8 +16,9 @@
       google.maps.event.addDomListener(window, 'resize', createMap);
       createMarkerCenter(map);
 
-      createMarker(map, 'test');
-
+      var myLatlng = new google.maps.LatLng(36.961740, -122.053906);
+      createMarker(map, myLatlng);
+      plotSites();
       return map;
     }
 
@@ -26,7 +27,7 @@
         path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
         fillColor: 'yellow',
         fillOpacity: 0.8,
-        scale: 0.5,
+        scale: 0.3,
         strokeColor: 'gold',
         strokeWeight: 14
       };
@@ -42,6 +43,16 @@
     function createMarker(map, ltnlng) {
       console.log('createMarker function is working now mon');
       console.log(ltnlng);
+      new google.maps.Marker({
+        position: ltnlng,
+        map: map,
+        title: 'Site is here I hope'
+      });
+    }
+
+    // plotSites from /sites.json
+    function plotSites() {
+      $.getJSON('/sites.json', createMarker(map, ltnlng));
     }
 
   createMap();
