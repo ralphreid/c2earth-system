@@ -16,7 +16,8 @@
       google.maps.event.addDomListener(window, 'resize', createMap);
       createMarkerCenter(map);
 
-      createMarker(map);
+      createMarker(map, 'test');
+
       return map;
     }
 
@@ -38,8 +39,9 @@
       });
     }
 
-    function createMarker(map) {
-
+    function createMarker(map, ltnlng) {
+      console.log('createMarker function is working now mon');
+      console.log(ltnlng);
     }
 
   createMap();
