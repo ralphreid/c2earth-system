@@ -15,6 +15,8 @@
       // re-build map when resized
       google.maps.event.addDomListener(window, 'resize', createMap);
       createMarkerCenter(map);
+
+      createMarker(map);
       return map;
     }
 
@@ -34,6 +36,10 @@
         title: 'Click to zoom',
         icon: goldStar
       });
+    }
+
+    function createMarker(map) {
+
     }
 
   createMap();
