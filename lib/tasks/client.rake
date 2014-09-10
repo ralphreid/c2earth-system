@@ -9,6 +9,7 @@ namespace :client do
       when "development" then "local"
       else "dropbox"
     end
+
     db_url_clients = case type
       when 'local' then 'clients.txt'
       when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_CLIENTS"]
