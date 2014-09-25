@@ -7,18 +7,20 @@ C2earthSystem::Application.routes.draw do
 
   resources :structure_types
 
-  resources :sites, module: :sites do
-    #   ... get closed_down   localhost/sites/1/closed_down
-    member do
-      resources :projects
-      resources :activities
-      #get 'projects'
-    end
+  resources :sites
 
-    collection do
-      get 'lookup_address'   #localhost/sites/lookup_address
-    end
-  end
+  # namespace :sites, module: :sites do
+  #   #   ... get closed_down   localhost/sites/1/closed_down
+  #   member do
+  #     resources :projects
+  #     resources :activities
+  #     #get 'projects'
+  #   end
+  #
+  #   collection do
+  #     get 'lookup_address'   #localhost/sites/lookup_address
+  #   end
+  # end
 
   resources :stakeholder_types
 
