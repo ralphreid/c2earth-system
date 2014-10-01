@@ -13,6 +13,7 @@
       // create map
       var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+
       // re-build map when resized
       google.maps.event.addDomListener(window, 'resize', redrawMap);
       createMarkerCenter(map);
@@ -49,7 +50,7 @@
         title: 'Site is here I hope'
       });
     }
-    
+
 
      // plotSites from /sites.json
     function plotSites(map) {
