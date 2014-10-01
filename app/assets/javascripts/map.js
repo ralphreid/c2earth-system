@@ -18,8 +18,8 @@
       google.maps.event.addDomListener(window, 'resize', redrawMap);
       createMarkerCenter(map);
 
-      var myLatlng = new google.maps.LatLng(36.961740, -122.053906);
-      createMarker(map, myLatlng);
+      // var myLatlng = new google.maps.LatLng(36.961740, -122.053906);
+      // createMarker(map, myLatlng);
       return map;
     }
 
@@ -43,12 +43,12 @@
 
     function createMarker(map, ltnlng) {
       console.log('createMarker function is working now mon');
-      // console.log(ltnlng);
-      new google.maps.Marker({
+      marker = new google.maps.Marker({
         position: ltnlng,
         map: map,
         title: 'Site is here I hope'
       });
+      markers.push(marker);
     }
 
 
@@ -56,20 +56,28 @@
     function plotSites(map) {
       $.getJSON('/sites.json', function(data) {
         $.each(data, function(idx, site) {
-          // console.log(item);
-          console.log(idx);
-          console.log(site.longitude);
-          console.log(site.latitude);
-
          createMarker(map, new google.maps.LatLng(site.latitude, site.longitude));
         });
       });
+
     }
+
+    // function getMarkers() {
+    //   $.getJSON('/sites.json', function(data) {
+    //     $.each(data, function(idx, site) {
+    //       markers.push(new google.maps.LatLng(site.latitude, site.longitude));
+    //     });
+    //   });
+    // }
 
     function redrawMap() {
       var map = createMap();
       plotSites(map);
     }
+
+  var markers = [];
+  // getMarkers();
+
 
   var map = createMap();
   plotSites(map);
