@@ -1,7 +1,7 @@
 class Sites::ProjectsController < ApplicationController
 
   def index
-    @site = Site.find(params[:id])
+    @site = Site.find(params[:site_id])
     @projects = @site.projects
   end
 
