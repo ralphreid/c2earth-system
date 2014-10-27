@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
-gem 'rails', '4.0.4'
+ruby '2.1.3'
+gem 'rails'
 gem 'sass-rails', '~> 4.0.1'
 gem 'uglifier', '~> 2.4.0'
 gem 'coffee-rails', '~> 4.0.1'
@@ -30,7 +30,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'awesome_print'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
 end
 
 # Paging
