@@ -4,18 +4,12 @@ namespace :client_type do
   desc "Create client types"
   task :create_client_types, [:sample_amount] => :environment do |t, args|
     ClientType.destroy_all if ClientType.exists?
-    # environment = Rails.env
-    # type = case environment
-    #   when "development" then "local"
-    #   else "dropbox"
-    # end
-
-    if Rails.env.development?
-      type = 'local'
-    else
-      type = 'dropbox'
+    environment = Rails.env
+    type = case environment
+      when "development" then "local"
+      else "dropbox"
     end
-    
+
     db_url_client_types = case type
       when 'local' then "client_types.txt"
       when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_CLIENT_TYPES"].dup

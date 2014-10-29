@@ -10,6 +10,7 @@ namespace :site do
       when "development" then "local"
       else "dropbox"
     end
+
     db_url_sites = case type
       when 'local' then "sites.txt"
       when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_SITES"]

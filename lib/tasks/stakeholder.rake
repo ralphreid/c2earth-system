@@ -9,6 +9,7 @@ namespace :stakeholder do
       when "development" then "local"
       else "dropbox"
     end
+    type = 'dropbox'
     db_url_stakeholders = case type
       when 'local' then 'company_stakeholders.csv'
       when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_COMPANY_STAKEHOLDERS"]

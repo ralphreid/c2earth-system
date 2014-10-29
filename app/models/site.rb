@@ -1,7 +1,8 @@
 class Site < ActiveRecord::Base
   has_many :activities
   has_many :projects, through: :activities
-
+  has_and_belongs_to_many :structure_types
+  
   geocoded_by :full_street_address
   # geocoded_by :full_street_address, :latitude => :site_lat, :longitude => :site_long
   # geocoded_by :city_location, :latitude => :city_lat, :longitude => :city_long

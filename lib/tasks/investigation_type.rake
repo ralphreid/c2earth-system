@@ -9,7 +9,7 @@ namespace :investigation_type do
       when "development" then "local"
       else "dropbox"
     end
-    type = 'dropbox'
+
     db_url_investigation_types = case type
     when 'local' then "ProjectsbyInvestigationType.txt"
     when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_INVESTIGATION_TYPE"]

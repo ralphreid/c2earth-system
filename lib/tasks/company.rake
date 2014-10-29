@@ -9,6 +9,7 @@ namespace :company do
     when "development" then "local"
     else "dropbox"
   end
+  type = 'dropbox'
   db_url_companies = case type
     when 'local' then 'companies.csv'
     when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_COMPANIES"]

@@ -9,6 +9,7 @@ namespace :project_manager do
       when "development" then "local"
       else "dropbox"
     end
+
     db_url_project_managers = case type
       when 'local' then"ProjectManagers.txt"
       when 'dropbox' then ENV["DROPBOX_LEGACY_DATA_URL_PROJECT_MANAGERS"]
