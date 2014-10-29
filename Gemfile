@@ -22,6 +22,7 @@ group :development, :test do
   gem 'therubyracer'
   gem 'railsbricks'
   gem 'erb2haml' # then run: rake haml:replace_erbs
+  gem 'scrutinizer-ocular'
 
   # from previous projects
   gem 'pry-rails'
