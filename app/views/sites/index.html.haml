@@ -2,14 +2,10 @@
 
 %table
   %tr
-    %th Number
+    %th Street Number
     %th Address
     %th City
     %th County
-    %th Loc page
-    %th Loc longitude
-    %th Loc latitude
-    %th Apn
     %th Tombrobox
     %th Fault
     %th
@@ -18,16 +14,12 @@
 
   - @sites.each do |site|
     %tr
-      %td= site.number
+      %td= site.street_number
       %td= site.address
       %td= site.city
       %td= site.county
-      %td= site.loc_page
-      %td= site.loc_longitude
-      %td= site.loc_latitude
-      %td= site.apn
       %td= site.tombrobox
-      %td= site.fault_id
+      %td= site.try(:fault).try(:name)
       %td= link_to 'Show', site
       %td= link_to 'Edit', edit_site_path(site)
       %td= link_to 'Destroy', site, :method => :delete, :data => { :confirm => 'Are you sure?' }
