@@ -1,11 +1,11 @@
-%p#notice= notice
-
 %p
   %b Number:
-  = @site.number
+  = @site.street_number
 %p
   %b Structure type:
-  = @site.structure_type_id
+  %ul
+    - @site.structure_types.each do |structure|
+      %li= structure.name
 %p
   %b Address:
   = @site.address
@@ -16,23 +16,12 @@
   %b County:
   = @site.county
 %p
-  %b Loc page:
-  = @site.loc_page
-%p
-  %b Loc longitude:
-  = @site.loc_longitude
-%p
-  %b Loc latitude:
-  = @site.loc_latitude
-%p
-  %b Apn:
-  = @site.apn
-%p
   %b Tombrobox:
   = @site.tombrobox
-%p
-  %b Fault:
-  = @site.fault_id
+- if @site.fault.present?
+  %p
+    %b Fault:
+    = @site.fault.name
 
 = link_to 'Edit', edit_site_path(@site)
 \|

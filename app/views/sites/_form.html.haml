@@ -7,9 +7,6 @@
           %li= msg
 
   .field
-    = f.label :number
-    = f.text_field :number
-  .field
     = f.label :address
     = f.text_field :address
   .field
@@ -19,22 +16,10 @@
     = f.label :county
     = f.text_field :county
   .field
-    = f.label :loc_page
-    = f.text_area :loc_page
-  .field
-    = f.label :loc_longitude
-    = f.text_field :loc_longitude
-  .field
-    = f.label :loc_latitude
-    = f.text_field :loc_latitude
-  .field
-    = f.label :apn
-    = f.text_field :apn
-  .field
     = f.label :tombrobox
     = f.text_field :tombrobox
   .field
     = f.label :fault_id
-    = f.number_field :fault_id
+    = f.select :fault_id, Fault.all.map{|f| [f.name, f.id]}
   .actions
     = f.submit 'Save'
