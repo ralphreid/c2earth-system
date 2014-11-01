@@ -8,6 +8,7 @@ C2earthSystem::Application.routes.draw do
   resources :structure_types
 
   resources :sites do
+    collection { post :import }
     # /sites/7026/projects
     resources :projects, module: :sites
   end

@@ -27,8 +27,7 @@ namespace :site do
     sites.each do |row|
       unless row == ["TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC", "TBC"]
         s = Site.create!(
-          street_number: row[9],
-          street_name: row[1],
+          address: row[1],
           city: row[2],
           county: row[3],
           loc_page: row[4],

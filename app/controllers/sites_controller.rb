@@ -39,6 +39,15 @@ class SitesController < ApplicationController
     end
   end
 
+  def import
+    if params[:file].present?
+      Site.import(params[:file])
+      redirect_to sites_path, notice: "Sites imported."
+    else
+      redirect_to sites_path, alert: "No file specified."
+    end
+  end
+
   # PATCH/PUT /sites/1
   # PATCH/PUT /sites/1.json
   def update
@@ -95,6 +104,6 @@ class SitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params.require(:site).permit(:number, :address, :city, :county, :loc_page, :loc_longitude, :loc_latitude, :apn, :tombrobox, :fault_id)
+      params.require(:site).permit(:address, :city, :county, :loc_page, :loc_longitude, :loc_latitude, :apn, :tombrobox, :fault_id)
     end
 end

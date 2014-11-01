@@ -16,7 +16,22 @@ class Site < ActiveRecord::Base
   after_validation :geocode
 
   def full_street_address
-    [street_number, street_name, city, zipcode, state_code, country_code].compact.join(', ')
+    [address, city, zipcode, state_code, country_code].compact.join(', ')
+  end
+
+  def self.import(file)
+    rows = []
+    CSV.foreach(file.path, headers: true) do |row|
+      rows << row
+    end
+    rows = rows.uniq {|r| [r["address"], r["city"], r["county"]]}
+
+    rows.each do |row|
+      site = Site.where(address: row["address"], city: row["city"], county: ["county"]).first || new
+      site.attributes = row.to_hash.except("StructureType", "Fault", "SiteNumber")
+      site.save!
+      # Site.create! row.to_hash.except("StructureType", "Fault", "SiteNumber")
+    end
   end
 
 end

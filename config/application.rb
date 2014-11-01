@@ -1,5 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
+require 'csv'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -19,10 +20,10 @@ module C2earthSystem
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    
+
     # turn off warnings triggered by friendly_id
     I18n.enforce_available_locales = false
-    
+
     # Test framework
     config.generators.test_framework :rspec
 
@@ -31,6 +32,6 @@ module C2earthSystem
     # config.autoload_paths += %W(#{config.root}/extras)
     # config.autoload_paths += %W(#{config.root}/lib)
     # config.autoload_paths += Dir["#{config.root}/lib/**/"]
-    
+
   end
 end

@@ -1,8 +1,11 @@
 %h1 Listing sites
 
+= form_tag import_sites_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag "Import"
+
 %table
   %tr
-    %th Street Number
     %th Address
     %th City
     %th County
@@ -14,7 +17,6 @@
 
   - @sites.each do |site|
     %tr
-      %td= site.street_number
       %td= site.address
       %td= site.city
       %td= site.county
