@@ -24,3 +24,6 @@ if User.count == 0
     u.save!
   end
 end
+
+# Faults
+Rake::Task["fault:create_faults"].invoke
