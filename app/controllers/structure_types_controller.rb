@@ -70,6 +70,6 @@ class StructureTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def structure_type_params
-      params.require(:name).permit(:name)
+      params.require(:structure_type).permit(:name)
     end
 end

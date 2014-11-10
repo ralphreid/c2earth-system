@@ -70,6 +70,6 @@ class StakeholderTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stakeholder_type_params
-      params.require(:stakeholder_type).permit(:stakeholder_type)
+      params.require(:stakeholder_type).permit(:name)
     end
 end
