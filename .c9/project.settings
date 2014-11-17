@@ -2,7 +2,15 @@
     "run": {
         "@path": "/.c9/runners",
         "configs": {
-            "json()": {},
+            "json()": {
+                "dev": {
+                    "debug": true,
+                    "name": "dev",
+                    "command": "rails s -p $PORT -b $IP",
+                    "runner": "Shell command",
+                    "cwd": "/"
+                }
+            },
             "@inited": "true"
         },
         "@runner": "Ruby on Rails (Rails 4.0 + Ruby 2.1)"
@@ -14,7 +22,7 @@
     },
     "ace": {
         "@newLineMode": "unix",
-        "@tabSize": "4",
+        "@tabSize": 2,
         "@useSoftTabs": "true",
         "@guessTabSize": "true"
     },

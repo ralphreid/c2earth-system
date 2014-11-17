@@ -22,25 +22,43 @@ class Site < ActiveRecord::Base
   end
 
   def self.import(file)
-
-    exception_fields = ["ProjectNumber","ProjectName1","ProjectName2","ProjectManager","InvestigationType","StructureType","ProjectDescription","ProjectPrefix","ProposalDate","ProposalNumber","ReportDate","SiteNumber","StreetName","City","County","Fault","APN","TOMBROBOX","LOC_PAGE","LOC_LONG","LOC_LAT","Vendor","Notes","ClientName","ClientType","ClientAddress","ClientCity","ClientState","ClientZip","ClientWorkPhone","ClientHomePhone","ClientCellPhone","ClientFaxPhone","ClientEmail","ClientNote","ClientName2","ClientType2","ClientNote2","ClientAddress2","ClientCity2","ClientState2","ClientZip2","ClientWorkPhone2","ClientHomePhone2","ClientCellPhone2","ClientFaxPhone2","ClientEmail2","InsPolicyNum","InsCompany","InsContact","InsAddress","InsCity","InsZip","InsPhone","InsFax","InsEmailWeb","ImsNotes","BillName","BillAttention","BillAddress","BillCity","BillState","BillZip","BadPayHistory","StructuralCompany","StructuralEngineer","StructuralInfo","CivilCompany","CivilEngineer","CivilInfo","SurveyCompany","Surveyor","SurveyorInfo","ArchitectCompany","Architect","ArchitectInfo","AttorneyCompany","Attorney","AttorneyInfo","RealestateBuyer","AgentBuyer","BuyerInfo","RealestateSeller","AgentSeller","SellerInfo","KOR1Company","KOR1Contact","KOR1Info","KOR2Company","KOR2contact","KOR2Info","KOR3Company","KOR3Contact","KOR3Info","Consultant1","ConsultantInfo1","Consultant2","ConsultantInfo2","Consultant3","ConsultantInfo3","Keyword","Memo","Title1","Note1","Title2","Note2","Title3","Note3","Title4","Note4","Title5","Note5"]
-    exception_fields -= ["address", "city", "county"]
-
-    rows = []
-    CSV.foreach(file.path, headers: true) do |row|
-      rows << row
+    csv = CSV.read(file.path, {:encoding => "CP1251:UTF-8", :col_sep => ",", :row_sep => :auto, :headers => false})
+    headers = csv[0].map!(&:downcase)
+    present_attributes = []
+    Site.attribute_names.each do |attribute|
+      if headers.include?(attribute)
+        present_attributes << attribute
+      end
     end
-    rows = rows.uniq {|r| [r["address"], r["city"], r["county"]]}
+    
+    #exception_fields = ["ProjectNumber","ProjectName1","ProjectName2","ProjectManager","InvestigationType","StructureType","ProjectDescription","ProjectPrefix","ProposalDate","ProposalNumber","ReportDate","SiteNumber","StreetName","City","County","Fault","APN","TOMBROBOX","LOC_PAGE","LOC_LONG","LOC_LAT","Vendor","Notes","ClientName","ClientType","ClientAddress","ClientCity","ClientState","ClientZip","ClientWorkPhone","ClientHomePhone","ClientCellPhone","ClientFaxPhone","ClientEmail","ClientNote","ClientName2","ClientType2","ClientNote2","ClientAddress2","ClientCity2","ClientState2","ClientZip2","ClientWorkPhone2","ClientHomePhone2","ClientCellPhone2","ClientFaxPhone2","ClientEmail2","InsPolicyNum","InsCompany","InsContact","InsAddress","InsCity","InsZip","InsPhone","InsFax","InsEmailWeb","ImsNotes","BillName","BillAttention","BillAddress","BillCity","BillState","BillZip","BadPayHistory","StructuralCompany","StructuralEngineer","StructuralInfo","CivilCompany","CivilEngineer","CivilInfo","SurveyCompany","Surveyor","SurveyorInfo","ArchitectCompany","Architect","ArchitectInfo","AttorneyCompany","Attorney","AttorneyInfo","RealestateBuyer","AgentBuyer","BuyerInfo","RealestateSeller","AgentSeller","SellerInfo","KOR1Company","KOR1Contact","KOR1Info","KOR2Company","KOR2contact","KOR2Info","KOR3Company","KOR3Contact","KOR3Info","Consultant1","ConsultantInfo1","Consultant2","ConsultantInfo2","Consultant3","ConsultantInfo3","Keyword","Memo","Title1","Note1","Title2","Note2","Title3","Note3","Title4","Note4","Title5","Note5"]
+    #exception_fields -= ["address", "city", "county"]
 
-    rows.each do |row|
-      site = Site.where(address: row["address"], city: row["city"], county: ["county"]).first || new
+    #rows = []
+    CSV.foreach(file.path, headers: true) do |row|
+      row_hash = row.to_hash.only(present_attributes)
+      
+      #present_attributes.each do |attribute|
+      #  row_hash[attribute.to_sym] = row[attribute.to_sym]
+      #end
+      site = Site.where(row_hash).first || new
+      unless site.id.present?
+        site.attributes = row_hash
+        site.save!
+      end
+      #rows << row
+    end
+    #rows = rows.uniq {|r| [r["address"], r["city"], r["county"]]}
+
+    #rows.each do |row|
+    #  site = Site.where(address: row["address"], city: row["city"], county: ["county"]).first || new
       # site.attributes = row.to_hash.except(exception_fields.map {|str| "\"#{str.downcase}\""}.join(','))
       # site.attributes = row.to_hash.except(exception_fields)
       # "['#{exception_fields.join("','")}']"
       # site.attributes = row.to_hash.except("ProjectNumber", "ProjectName1", "ProjectName2", "ProjectManager", "InvestigationType", "StructureType", "ProjectDescription", "ProjectPrefix", "ProposalDate", "ProposalNumber", "ReportDate", "SiteNumber", "StreetName", "Fault", "APN", "TOMBROBOX", "LOC_PAGE", "LOC_LONG", "LOC_LAT", "Vendor", "Notes", "ClientName", "ClientType", "ClientAddress", "ClientCity", "ClientState", "ClientZip", "ClientWorkPhone", "ClientHomePhone", "ClientCellPhone", "ClientFaxPhone", "ClientEmail", "ClientNote", "ClientName2", "ClientType2", "ClientNote2", "ClientAddress2", "ClientCity2", "ClientState2", "ClientZip2", "ClientWorkPhone2", "ClientHomePhone2", "ClientCellPhone2", "ClientFaxPhone2", "ClientEmail2", "InsPolicyNum", "InsCompany", "InsContact", "InsAddress", "InsCity", "InsZip", "InsPhone", "InsFax", "InsEmailWeb", "ImsNotes", "BillName", "BillAttention", "BillAddress", "BillCity", "BillState", "BillZip", "BadPayHistory", "StructuralCompany", "StructuralEngineer", "StructuralInfo", "CivilCompany", "CivilEngineer", "CivilInfo", "SurveyCompany", "Surveyor", "SurveyorInfo", "ArchitectCompany", "Architect", "ArchitectInfo", "AttorneyCompany", "Attorney", "AttorneyInfo", "RealestateBuyer", "AgentBuyer", "BuyerInfo", "RealestateSeller", "AgentSeller", "SellerInfo", "KOR1Company", "KOR1Contact", "KOR1Info", "KOR2Company", "KOR2contact", "KOR2Info", "KOR3Company", "KOR3Contact", "KOR3Info", "Consultant1", "ConsultantInfo1", "Consultant2", "ConsultantInfo2", "Consultant3", "ConsultantInfo3", "Keyword", "Memo", "Title1", "Note1", "Title2", "Note2", "Title3", "Note3", "Title4", "Note4", "Title5", "Note5")
       # site.attributes = row.to_hash.except("StructureType", "Fault", "SiteNumber")
-      site.save!
-    end
+      #site.save!
+    #end
   end
 
 end

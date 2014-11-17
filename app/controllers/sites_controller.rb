@@ -38,14 +38,39 @@ class SitesController < ApplicationController
       end
     end
   end
-
-  def import
+  
+  def upload
     if params[:file].present?
-      Site.import(params[:file])
-      redirect_to sites_path, notice: "Sites imported."
+      # save the file to file system
+      #Site.import(params[:file])
+      redirect_to import_sites_path(file_name: params[:file].path)
     else
       redirect_to sites_path, alert: "No file specified."
     end
+  end
+  
+  def import
+    # get headers from csv
+    csv = CSV.read(params[:file].path, {:encoding => "CP1251:UTF-8", :col_sep => ",", :row_sep => :auto, :headers => false})
+    @headers = csv[0].map!(&:downcase)
+    
+    @site_attributes = Site.attribute_names
+  end
+  
+  def process_file
+    selects = params[:selects]
+    matched_attributes = Hash.new # { city: "header_city" }
+    
+    selects.each do |key, value|
+      unless value.blank?
+        matched_attributes[value.to_sym] = 
+      end
+    end
+    
+    binding.pry
+    #"attributes_12"=>"",
+    #"attributes_13"=>"city",
+    #"attributes_14"=>"",
   end
 
   # PATCH/PUT /sites/1

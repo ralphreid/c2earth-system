@@ -1,0 +1,20 @@
+= form_tag process_file_sites_path, method: :post do
+  %table
+    %tr
+      %th
+        CSV Header
+      %th
+        Site attribute
+  
+    - @headers.each_with_index do |header, index|
+      %tr
+        %td
+          = header
+        %td
+          = select_tag "selects[attributes_#{index}]", options_for_select(@site_attributes), include_blank: true
+
+# options_for_select({ @site_attributes[0] => header, "Plus" => "$40" })
+# 
+# => <option value="header_name">site_attribute</option>
+
+  = submit_tag "Process"
