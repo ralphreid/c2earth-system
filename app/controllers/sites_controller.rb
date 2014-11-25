@@ -52,25 +52,35 @@ class SitesController < ApplicationController
   def import
     # get headers from csv
     csv = CSV.read(params[:file].path, {:encoding => "CP1251:UTF-8", :col_sep => ",", :row_sep => :auto, :headers => false})
-    @headers = csv[0].map!(&:downcase)
+    @file_path = params[:file].path
+    @headers = csv[0]
     
     @site_attributes = Site.attribute_names
   end
   
   def process_file
     selects = params[:selects]
-    matched_attributes = Hash.new # { city: "header_city" }
+    matched_headers = Hash.new # { city: "header_city" }
+    csv = CSV.read(params[:file_path], {:encoding => "CP1251:UTF-8", :col_sep => ",", :row_sep => :auto, :headers => false})
     
     selects.each do |key, value|
       unless value.blank?
-        matched_attributes[value.to_sym] = 
+        matched_headers[key] = value #key = csv header, value = site attribute name
       end
     end
     
-    binding.pry
-    #"attributes_12"=>"",
-    #"attributes_13"=>"city",
-    #"attributes_14"=>"",
+    CSV.foreach(params[:file_path], headers: true) do |row|
+      
+      row_hash = row.to_hash
+      site = Site.new
+      matched_headers.each do |key, value|
+        site[value.to_sym] = row_hash[key]
+      end
+      
+      site.save!
+    end
+    
+    redirect_to sites_path
   end
 
   # PATCH/PUT /sites/1

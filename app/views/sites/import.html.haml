@@ -1,4 +1,5 @@
 = form_tag process_file_sites_path, method: :post do
+  = hidden_field_tag :file_path, @file_path
   %table
     %tr
       %th
@@ -11,10 +12,6 @@
         %td
           = header
         %td
-          = select_tag "selects[attributes_#{index}]", options_for_select(@site_attributes), include_blank: true
-
-# options_for_select({ @site_attributes[0] => header, "Plus" => "$40" })
-# 
-# => <option value="header_name">site_attribute</option>
+          = select_tag "selects[#{header}]", options_for_select(@site_attributes), include_blank: true
 
   = submit_tag "Process"

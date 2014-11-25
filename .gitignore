@@ -45,5 +45,4 @@ nugrant2env.sh
 # Ignore local seed content
 /seed_content/
 
-/.c9/*
-.c9/metadata/tab0
+/.c9/
